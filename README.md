@@ -27,4 +27,8 @@ git status (cual fueron modificados)
 git add -A   (+)
 git status (ya me muestra cabios añadidos listos)
 ----------------------------------------------
-git log   (muestra los commit(s) echos)
+git log (muestra los commit(s) echos all info)
+----------------------------------------------
+git log
+git checkout (mas numerodel commit)
+git checkout master  (reguersar al ultimo commit)

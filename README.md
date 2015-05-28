@@ -13,4 +13,18 @@ git config --global user.email "correo"
 git config --global color.ui true
 
 git config --global --list
-----------------------------------------------------------------------------
+
+git --help
+git help +(comando que desea mirar a fondo)
+salir con la tecla (q)
+----------------------------------------------
+ssh Keygen
+----------------------------------------------
+git init (si no fue inicializado antes)
+----------------------------------------------
+git status (cual fueron modificados)
+----------------------------------------------
+git add -A   (+)
+git status (ya me muestra cabios añadidos listos)
+----------------------------------------------
+git log   (muestra los commit(s) echos)

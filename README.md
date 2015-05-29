@@ -3,7 +3,7 @@ aprendiendo git de 0 a fondo
 
 instalar git (pagina pricipal esta todo los comandos para cada sistema op..)
 (configuracion inicial)
----------------------only git------------------------------------------------------
+-----------------only git--------------------------
 git --version
 
 git config --global user.name "nombre usuario"
@@ -71,4 +71,38 @@ alias a comandos
 git config --global alias.nom_que_quiera 'log --oneline --graph --all'
 
 git nom_que_quiera   (ejecuta el comando de arriba)
+----------------------------------------------------
+git branch   (para fucionar toca estar en la master)
+git merge nombredelarama
+
+---------formas de fusion----------------------------
+1 -fast forward  (trabajan en diferente codigo)
+2 -manual merge  (commits que se enciman codigo)
+
+-----------------------------------
+1 -fast forward 
+pide el commit 
+oprime la tecla o  (sale INSERT)
+escribe el commit
+se da ESC   ( se borra insert)
+se ( :x ) que significa salvar y salir
+se da ENTER
+-------------------------------------
+
+2 -manual merge
+
+dice que hay un conflicto
+(cual quiere dejar y cual quiere borrar)
+head=master  y  rama expe...
+
+<<<<<<< HEAD
+git nom_que_quiera   (ejecuta el comando de arriba)
+=======
+git nom_que_quiera   (ejecuta el comando de arriba)
+>>>>>>> experimental
+
+------------------------------------------------------
+git branch --merge (para saber que ramas se fucionaron)
+------------------------------------------------------
+git branch -d nombredelarama (borrar rama)
 

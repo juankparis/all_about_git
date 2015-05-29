@@ -55,7 +55,7 @@ hard= borra todo hasta lo de sublime(hasta donde se le diga)
 la unca forma de deshacer reser es reniendo el numero de comit
 git reset --hard # devuelve hasta el commit
 -------------------------------------------------
--------------------------------------------------
+---------------------------------------------------
 --ramas or branches------------------------------
 -------------------------------------------------
 git branch experimental=(es el nombre de la rama)

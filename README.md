@@ -72,7 +72,9 @@ git config --global alias.nom_que_quiera 'log --oneline --graph --all'
 
 git nom_que_quiera   (ejecuta el comando de arriba)
 ----------------------------------------------------
-git branch   (para fucionar toca estar en la master)
+(para fucionar toca estar en la master si desea uno dejar la fusion final en master si desea fucionar dos ramas diferentes a master se puede, situarse en la rama donde queda la fucion)
+
+git branch 
 git merge nombredelarama
 
 ---------formas de fusion----------------------------
@@ -105,4 +107,28 @@ git nom_que_quiera   (ejecuta el comando de arriba)
 git branch --merge (para saber que ramas se fucionaron)
 ------------------------------------------------------
 git branch -d nombredelarama (borrar rama)
+
+---------------------------------------------------
+----git raverse----(encimar rama experimental a la master) (no recomendada de repo publicos(nunca))
+---------------------------------------------------
+--------------------------------------------------
+---------------github-----------------------------
+---------------------------------------------------
+--------------------------------------------------
+mover a desktop
+y
+git clone la direccion del repo en github
+
+(clone viene todo incluido hasta los commits del proyecto a clonar)
+--------------------------------------------------
+(enlazar servidores pc-git/github)
+para proyectos propios
+
+git remote add origin enlace_de_github
+
+git push origin master   (enpujar cambios(commits))
+                (master)=a cual rama guarda los cambios 
+
+
+
 

@@ -87,10 +87,10 @@ git merge nombredelarama
 -----------------------------------
 1 -fast forward 
 pide el commit 
-oprime la tecla o  (sale INSERT)
+oprime la tecla ctrl + o  (sale INSERT)
 escribe el commit
-se da ESC   ( se borra insert)
-se ( :x ) que significa salvar y salir
+se da ENTER
+se ( CTRL + X ) que significa salvar y salir
 se da ENTER
 -------------------------------------
 

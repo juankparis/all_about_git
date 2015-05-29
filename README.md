@@ -69,4 +69,6 @@ git log --online --graph --all (ver todas las ramas con su commits)
 alias a comandos
 --------mirrarbranch-------------
 git config --global alias.nom_que_quiera 'log --oneline --graph --all'
+
 git nom_que_quiera   (ejecuta el comando de arriba)
+

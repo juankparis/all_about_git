@@ -132,13 +132,17 @@ git push origin master   (enpujar cambios(commits))
                 (master)=a cual rama guarda los cambios 
 
 
----------repos propios con mi equipo------------ 
+---------repos propios con mi equipo---------------- 
+-----------actulizar cambios -----------------------
 
 cuando hacen cambios en github 
 
-git fetch y git merge
+git fetch descargar los archivos a mi pc de github
 
+git fetch origin
+git branch -a 
+git merge origin/master
 
+(actualiza archibos de otros colaboradores)
 
-
-
+------------------------------------------------------

@@ -72,7 +72,7 @@ git config --global alias.nom_que_quiera 'log --oneline --graph --all'
 
 git nom_que_quiera   (ejecuta el comando de arriba)
 ----------------------------------------------------
-(para fucionar toca estar en la master si desea uno dejar la fusion final en master si desea fucionar dos ramas diferentes a master se puede, situarse en la rama donde queda la fucion)
+(para fucionar toca estar en la master si desea uno dejar la fusion final en master si desea fucionar dos ramas diferentes a master se puede, situarse en la rama donde va a quedar la fucion)
 
 git branch 
 git merge nombredelarama

@@ -3,7 +3,7 @@ aprendiendo git de 0 a fondo
 
 instalar git (pagina pricipal esta todo los comandos para cada sistema op..)
 (configuracion inicial)
----------------------------------------------------------------------------
+---------------------only git------------------------------------------------------
 git --version
 
 git config --global user.name "nombre usuario"
@@ -20,12 +20,20 @@ salir con la tecla (q)
 -------------------------------------------------
 ssh Keygen
 -------------------------------------------------
+
+
+-------------------------------------------------
 git init (si no fue inicializado antes)
 -------------------------------------------------
 git status (cual fueron modificados)
 -------------------------------------------------
 git add -A   (+)
+git commit -m "mensaje del commit"
 git status (ya me muestra cabios añadidos listos)
+------------------------------------------------
+-------//-atajo--add--y --commit----//-----------
+------------------------------------------------
+git commit -am "mesaje del commit"
 ----------------------------------------------
 git log (muestra los commit(s) echos all info)
 -------------------------------------------------
@@ -42,11 +50,15 @@ git reset --hard  (+ el #)
 soft= borra todos los comits arriba de donde se ponga el # de commit (deja cambios en sublime)
 mix= borra todos los commits, pero deja camibios sublime,
 hard= borra todo hasta lo de sublime(hasta donde se le diga)
-----------nota git reset-------------------------
+----------------nota git reset-------------------
 -------------------------------------------------
-la unca forma de desaser reser es reniendo el numero de comit
+la unca forma de deshacer reser es reniendo el numero de comit
 git reset --hard # devuelve hasta el commit
 -------------------------------------------------
 -------------------------------------------------
+--ramas or branches------------------------------
+-------------------------------------------------
+
+
 
 

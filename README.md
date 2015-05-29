@@ -24,6 +24,8 @@ ssh Keygen
 
 -------------------------------------------------
 git init (si no fue inicializado antes)
+
+git remote add origin [http or SSH]
 -------------------------------------------------
 git status (cual fueron modificados)
 -------------------------------------------------

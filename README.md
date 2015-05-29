@@ -132,3 +132,11 @@ git push origin master   (enpujar cambios(commits))
 
 ---------repos propios con mi equipo------------ 
 
+cuando hacen cambios en github 
+
+git fetch y git merge
+
+
+
+
+

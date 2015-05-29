@@ -52,7 +52,7 @@ mix= borra todos los commits, pero deja camibios sublime,
 hard= borra todo hasta lo de sublime(hasta donde se le diga)
 ----------------nota git reset-------------------
 -------------------------------------------------
-la unca forma de deshacer reser es reniendo el numero de comit
+la unca forma de deshacer reser es teniendo el numero de comit
 git reset --hard # devuelve hasta el commit
 -------------------------------------------------
 ---------------------------------------------------
@@ -77,7 +77,7 @@ git nom_que_quiera   (ejecuta el comando de arriba)
 (para fucionar toca estar en la master si desea uno dejar la fusion final en master si desea fucionar dos ramas diferentes a master se puede, situarse en la rama donde va a quedar la fucion)
 
 git branch
- 
+
 git merge nombredelarama
 
 ---------formas de fusion----------------------------
@@ -132,10 +132,10 @@ git remote add origin enlace_de_github
 git push origin master   (enpujar cambios(commits))
                 (master)=a cual rama guarda los cambios 
 
-
+----------------------------------------------------
 ---------repos propios con mi equipo---------------- 
 -----------actulizar cambios -----------------------
-
+-----------------------------------------(*)-----------
 cuando hacen cambios en github 
 
 git fetch descargar los archivos a mi pc de github

@@ -58,7 +58,15 @@ git reset --hard # devuelve hasta el commit
 -------------------------------------------------
 --ramas or branches------------------------------
 -------------------------------------------------
+git branch experimental=(es el nombre de la rama)
+git brach            (listado de todas las ramas)
 
-
-
-
+git checkout experimental (meverse a rama expe..)
+git branch               =(ya estamos en expe...)
+-------------------------
+git log --online --graph --all (ver todas las ramas con su commits)
+-------------------------
+alias a comandos
+--------mirrarbranch-------------
+git config --global alias.nom_que_quiera 'log --oneline --graph --all'
+git nom_que_quiera   (ejecuta el comando de arriba)

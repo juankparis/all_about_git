@@ -130,5 +130,5 @@ git push origin master   (enpujar cambios(commits))
                 (master)=a cual rama guarda los cambios 
 
 
-
+---------repos propios con mi equipo------------ 
 

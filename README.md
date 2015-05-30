@@ -149,7 +149,7 @@ git merge origin/master
 (actualiza archibos de otros colaboradores)
 
 hace los dos comandos a la vez pero toca saber que pasa antes con los comandos arriba
-git pull (rama) 
+git pull    (esta en la rama que deseacatualizar) 
 
 --------------------------------------------------------
 -----------------------forked----------------------------

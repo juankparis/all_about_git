@@ -1,5 +1,5 @@
 # all_about_git
-aprendiendo git de 0 a fondo
+aprendiendo git y github de 0 a fondo
 
 instalar git (pagina pricipal esta todo los comandos para cada sistema op..)
 (configuracion inicial)

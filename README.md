@@ -154,4 +154,71 @@ git pull    (esta en la rama que deseacatualizar)
 --------------------------------------------------------
 -----------------------forked----------------------------
 --------------------------------------------------------
+ramas basicas 
+//////////////////////
+master
+origin/master
+upstreram/master
+//////////////////////
+
+para conectar repos forkeados
+
+hay dos repo principal (que uno no puede hacer cambios)
+y el pripio que es un clon donde uno puede hacer cambios
+--------------------------------------------------------
+se da fork en github (se clona a github)
+git clone [http o ssh]      (se clona a git)
+--------------------------------------------------------
+
+(cundo uno clona el repo no hay nesecidad de estos dos comandos  siguientes porque ya viene incluido el origin)
+git remote add origin [http o ssh] 
+git remote -v
+
+---------------------------------------------------------
+solamente faltaria el upstream
+(upstream es para espejear el repo de propeterio)
+---------------------------------------------------------
+
+git remote add upstream [http]  (ojo) 
+
+(se pone el de propietario de repo, No el clon que hay en nuestro github)
+
+git remote -v     (se ve la adicion de upstream)
+
+git fetch origin  (repo fork pricipal)
+
+git fetch upstream (actualiza cambios de repo propetario)
+
+git branch -a  
+
+git merge upstream/master
+
+(se hace la fusion de uptream/master con master de mi repo en git)
+
+git push origin master
+
+actualizar nuestro github (de repo que forkeamos del pricipal) 
+-------------------------------------------------------
+hacer propuestas a repos principales
+-------------------------------------------------------
+1 estar aztualizados del repo pricipal siempre
+2 gardar los cambios en nuestro repo fork de principal
+3 se hace el pull request desde guthub (boton)
+
+(solo sale en los repos que son fork aparecen los cambios  )
+
+4 se da create pull request
+
+5 se hace el commit o description de la prupuesta a cambiar
+
+6 pull request (aceptar)
+
+7 si el propietario del repo quiere acepta su propuesta
+
+
+
+
+
+
+
 

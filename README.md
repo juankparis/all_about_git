@@ -21,10 +21,6 @@ git --help
 git help +(comando que desea mirar a fondo)
 salir con la tecla (q)
 -------------------------------------------------
-ssh Keygen
--------------------------------------------------
-
-
 -------------------------------------------------
 git init (si no fue inicializado antes)
 
@@ -117,6 +113,7 @@ git nom_que_quiera   (ejecuta el comando de arriba)
 
 ------------------------------------------------------
 git branch --merge (para saber que ramas se fucionaron)
+git branch -a   (mirar todas las ramas)
 ------------------------------------------------------
 borrar ramas
 ------------------------------------------------------
@@ -163,6 +160,7 @@ git merge origin/master
 hace los dos comandos a la vez pero toca saber que pasa antes con los comandos arriba
 git pull    (esta en la rama que deseacatualizar) 
 
+git pull origin (rama a actualizar)
 --------------------------------------------------------
 -----------------------forked----------------------------
 --------------------------------------------------------
@@ -227,6 +225,54 @@ hacer propuestas a repos principales
 6 pull request (aceptar)
 
 7 si el propietario del repo quiere acepta su propuesta
+
+-------------------------------------------------------
+-------------llave SSH---------------------------------
+-------------------------------------------------------
+
+Instalar llave SSH
+
+La llave SSH te va a permitir conectarte con tu cuenta de Github. Una vinculación de tu área local(tu ordenador en este caso) y el área remota(los servidores de Github).
+
+  ssh-keygen
+  SALE:
+  Generating public/private rsa key pair.
+  Enter file in which to save the key (/home/you/.ssh/id_rsa):
+  
+Le das ENTER y después te pedirá que agregues una contraseña, el cual es recomendable:
+
+Enter passphrase (empty for no passphrase): [Contraseña]
+Enter same passphrase again: [Repetir contraseña]
+  
+El cual te aparecerá un mensaje con la llave ssh
+
+Después, para ver la llave SSH, vas a teclear:
+
+cd .ssh
+
+cat id_rsa.pub
+
+Finalmente, copiarás toda la llave "ssh-rsa" hasta el final y la copiarás en tu perfil de Github -> 
+
+en Account Settings -> SSH Keys
+
+finalmente le darás "Add SSH Key" para pegarlo.
+
+para conectarse por ssh se copea la llave en github en el mismo lugar de hhtp pero se da click en ssh y hay si se copea la direccion ssh
+
+en la terminal parado en el repo se hace:
+
+git init
+git remote add origin (direccion ssh)
+git pull origin master
+pregunta el pass de la llave ssh
+enter
+--------listo-------
+
+(decargar mas ramas)
+git pull origin (nombre_de_la_rama)
+git checkout (nombre_de_la_rama)
+y se crea la rama
 
 -------------------------------------------------------
 -------------------github pages------------------------

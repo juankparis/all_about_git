@@ -1,4 +1,8 @@
 este es un ejemplo  este es un ejemploeste es un ejemploeste es un ejemploeste es un ejemploeste es un ejemplo  este es un ejemploeste es un ejemploeste es un ejemploeste es un ejemploeste es un ejemplo  este es un ejemploeste es un ejemploeste es un ejemploeste es un ejemplo
+<<<<<<< HEAD
+=======
+esta es una fusion de repaso
+>>>>>>> experimental
 otro ejemplo de acuatilazr git modificando github
 OTRO 
 otro mas 

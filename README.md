@@ -111,6 +111,8 @@ git nom_que_quiera   (ejecuta el comando de arriba)
 ------------------------------------------------------
 git branch --merge (para saber que ramas se fucionaron)
 ------------------------------------------------------
+borrar ramas
+------------------------------------------------------
 git branch -d nombredelarama (borrar rama)
 
 ---------------------------------------------------

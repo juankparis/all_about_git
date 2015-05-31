@@ -232,6 +232,14 @@ hacer propuestas a repos principales
 -------------------github pages------------------------
 -------------------------------------------------------
 
+1- crear un branch llamado gh-pages
+2- ir a github parace en la rama gh-pages 
+3- dar en editar (esta abajo del nombre del repo)
+4- website se pone: 
+	http://nombre_del_usurio.github.io/nombre_del_repo
+5- se da save
+
+    (y listo este es un deployment con github pages)  
 
 -------------------------------------------------------
 -----------------deployment----------------------------

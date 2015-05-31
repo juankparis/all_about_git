@@ -3,7 +3,7 @@ aprendiendo git de 0 a fondo
 
 instalar git (pagina pricipal esta todo los comandos para cada sistema op..)
 (configuracion inicial)
----------------------only git------------------------------------------------------
+-----------------only git--------------------------
 git --version
 
 git config --global user.name "nombre usuario"
@@ -69,4 +69,74 @@ git log --online --graph --all (ver todas las ramas con su commits)
 alias a comandos
 --------mirrarbranch-------------
 git config --global alias.nom_que_quiera 'log --oneline --graph --all'
+
 git nom_que_quiera   (ejecuta el comando de arriba)
+----------------------------------------------------
+(para fucionar toca estar en la master si desea uno dejar la fusion final en master si desea fucionar dos ramas diferentes a master se puede, situarse en la rama donde queda la fucion)
+
+git branch 
+git merge nombredelarama
+
+---------formas de fusion----------------------------
+1 -fast forward  (trabajan en diferente codigo)
+2 -manual merge  (commits que se enciman codigo)
+
+-----------------------------------
+1 -fast forward 
+pide el commit 
+oprime la tecla o  (sale INSERT)
+escribe el commit
+se da ESC   ( se borra insert)
+se ( :x ) que significa salvar y salir
+se da ENTER
+-------------------------------------
+
+2 -manual merge
+
+dice que hay un conflicto
+(cual quiere dejar y cual quiere borrar)
+head=master  y  rama expe...
+
+<<<<<<< HEAD
+git nom_que_quiera   (ejecuta el comando de arriba)
+=======
+git nom_que_quiera   (ejecuta el comando de arriba)
+>>>>>>> experimental
+
+------------------------------------------------------
+git branch --merge (para saber que ramas se fucionaron)
+------------------------------------------------------
+git branch -d nombredelarama (borrar rama)
+
+---------------------------------------------------
+----git raverse----(encimar rama experimental a la master) (no recomendada de repo publicos(nunca))
+---------------------------------------------------
+--------------------------------------------------
+---------------github-----------------------------
+---------------------------------------------------
+--------------------------------------------------
+mover a desktop
+y
+git clone la direccion del repo en github
+
+(clone viene todo incluido hasta los commits del proyecto a clonar)
+--------------------------------------------------
+(enlazar servidores pc-git/github)
+para proyectos propios
+
+git remote add origin enlace_de_github
+
+git push origin master   (enpujar cambios(commits))
+                (master)=a cual rama guarda los cambios 
+
+
+---------repos propios con mi equipo------------ 
+
+cuando hacen cambios en github 
+
+git fetch y git merge
+
+
+
+
+

@@ -113,7 +113,7 @@ git branch --merge (para saber que ramas se fucionaron)
 ------------------------------------------------------
 borrar ramas
 ------------------------------------------------------
-git branch -d nombredelarama (borrar rama)
+git branch -D nombredelarama (borrar rama)
 
 ---------------------------------------------------
 ----git raverse----(encimar rama experimental a la master) (no recomendada de repo publicos(nunca))

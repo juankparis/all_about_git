@@ -217,10 +217,25 @@ hacer propuestas a repos principales
 
 7 si el propietario del repo quiere acepta su propuesta
 
+-------------------------------------------------------
+-----------------deployment----------------------------
+-------------------------------------------------------
+existen 3 ambientes
+--------------
+1- development
+2- production
+3- testing
+4- staging
+-----------
+el 1 y 2 son los mas usados,
+lo correcto es 1- 3- 4- y hay si el 2-
 
+(primero se puebe el codigo en las areas de testing y staing y hay si se sube a pruduction (son filtros))
 
+-----------------------------------------------
+development -- testing --gitgub -- pruduction
+(es el mas usado)
+-----------------------------------------------
 
-
-
-
+ftp solamente es solo para binarios y github es para control de verciones
 

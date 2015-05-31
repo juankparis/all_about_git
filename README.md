@@ -3,7 +3,10 @@ aprendiendo git y github de 0 a fondo
 
 instalar git (pagina pricipal esta todo los comandos para cada sistema op..)
 (configuracion inicial)
+---------------------------------------------------
 -----------------only git--------------------------
+---------------------------------------------------
+
 git --version
 
 git config --global user.name "nombre usuario"
@@ -56,10 +59,12 @@ hard= borra todo hasta lo de sublime(hasta donde se le diga)
 -------------------------------------------------
 la unca forma de deshacer reser es teniendo el numero de comit
 git reset --hard # devuelve hasta el commit
+
 -------------------------------------------------
 ---------------------------------------------------
 --ramas or branches------------------------------
 -------------------------------------------------
+
 git branch experimental=(es el nombre de la rama)
 git brach            (listado de todas las ramas)
 
@@ -73,9 +78,11 @@ alias a comandos
 git config --global alias.nom_que_quiera 'log --oneline --graph --all'
 
 git nom_que_quiera   (ejecuta el comando de arriba)
+
 ---------------------------------------------------
 --------------------fuciones------------------------
 ----------------------------------------------------
+
 (para fucionar toca estar en la master si desea uno dejar la fusion final en master si desea fucionar dos ramas diferentes a master se puede, situarse en la rama donde va a quedar la fucion)
 
 git branch
@@ -117,11 +124,13 @@ git branch -D nombredelarama (borrar rama)
 
 ---------------------------------------------------
 ----git raverse----(encimar rama experimental a la master) (no recomendada de repo publicos(nunca))
+
 ---------------------------------------------------
 --------------------------------------------------
 ---------------github-----------------------------
 ---------------------------------------------------
 --------------------------------------------------
+
 mover a desktop
 y
 git clone la direccion del repo en github
@@ -140,6 +149,7 @@ git push origin master   (enpujar cambios(commits))
 ---------repos propios con mi equipo---------------- 
 -----------actulizar cambios -----------------------
 -----------------------------------------(*)-----------
+
 cuando hacen cambios en github 
 
 git fetch descargar los archivos a mi pc de github
@@ -156,6 +166,7 @@ git pull    (esta en la rama que deseacatualizar)
 --------------------------------------------------------
 -----------------------forked----------------------------
 --------------------------------------------------------
+
 ramas basicas 
 //////////////////////
 master
@@ -218,8 +229,14 @@ hacer propuestas a repos principales
 7 si el propietario del repo quiere acepta su propuesta
 
 -------------------------------------------------------
------------------deployment----------------------------
+-------------------github pages------------------------
 -------------------------------------------------------
+
+
+-------------------------------------------------------
+-----------------deployment----------------------------
+---despliegue basico-----------------------------------
+
 existen 3 ambientes
 --------------
 1- development
@@ -227,6 +244,7 @@ existen 3 ambientes
 3- testing
 4- staging
 -----------
+
 el 1 y 2 son los mas usados,
 lo correcto es 1- 3- 4- y hay si el 2-
 

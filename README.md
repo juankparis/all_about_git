@@ -383,7 +383,7 @@ fecha para desarrollar y/o solucionar una parte del proyecto
 create milestone
 y los agrega al issues de la persona a sulucionar
 
-(el porcentaje de issues resultos asociados y catidad de issues abiertos y cerrados )
+(el porcentaje de issues resultos asociados y catidad de issues abiertos y cerrados )(agrupacion de tareas)
 
 para sulucionar el issues 
   1- se desarrolla el tema y se guardan en github 

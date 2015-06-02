@@ -344,4 +344,15 @@ y se copia a github la llava publica
 y se crea el deployment
 
 (cada vez que se hace un cambio en development y se suben a github se conecta remotamente al servidor para hacer el pull correspondiente)(si se quiere subir los cambios)
+--------------------------------------------------------
+-------------gestion de proyectos-----------------------
+--WIKI--------------------------------------------------
 
+en github buscar una area que se llama:  wiki 
+
+crea tu wiki titulo y contenido 
+    imagenes
+    videos
+    etc
+
+los vikis  son para esplicar a tu equipo como se va a gestionar tu proyecto y/o a tu colaboradores.    

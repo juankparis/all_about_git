@@ -315,6 +315,27 @@ ftp solamente es solo para binarios y github es para control de verciones
 -----------------------------------------------------------
 -------------------manual deployment-----------------------
 -----------------------------------------------------------
+(el recomendado)
+
+1-configurar con su probedor de dominio la app y iniciar un site
+
+(entran con la direccion que le proporciona su probedor de dominios)==(juanweb396)
+
+2- ssh juanweb396
+
+3- pide el pass del servidor y entra al servidor de forma remota
+
+4- ls (buscamos la carpeta)
+
+5- cd (ruta donde estan las aplicaciones en el servidor y entran y buscamos la carpeta creada en el primer paso)
+
+conectar via ssh desde el servidor a github
+(mirar arriba como crear llaves ssh)(la llave se crea en elservidor no en dovelopment)(estando conectado al servidor)
+
+
+
+
+
 
 
 

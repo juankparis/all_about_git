@@ -346,6 +346,7 @@ y se crea el deployment
 (cada vez que se hace un cambio en development y se suben a github se conecta remotamente al servidor para hacer el pull correspondiente)(si se quiere subir los cambios)
 --------------------------------------------------------
 -------------gestion de proyectos-----------------------
+--------------------------------------------------------
 --WIKI--------------------------------------------------
 
 en github buscar una area que se llama:  wiki 
@@ -359,5 +360,33 @@ crea tu wiki titulo y contenido
 
 los vikis  son para esplicar a tu equipo como se va a gestionar tu proyecto y/o a tu colaboradores.    
 
+---------------------------------------------------------
+---------------------------------------------------------
+----issues------------------------------------------------
 
+gestor de proyectos (adelantos o trabajos asignados)
+
+crear issues
+a quien se lo va asignar
+labels = tipo de issues
+titulo + descripcion 
+submit issues
+
+se pueden puner imagenes para una mayor descrpcion
+
+sive para que el gestor de proyectos(persona) vaya haciendo el deployment segun los issues resueltos)(ayuda a asignar una tarea a una persona y asi no se enciman codigo entre desarrolladores
+
+----milestone----
+
+titulo + descripcion
+fecha para desarrollar y/o solucionar una parte del proyecto 
+create milestone
+y los agrega al issues de la persona a sulucionar
+
+(el porcentaje de issues resultos asociados y catidad de issues abiertos y cerrados )
+
+para sulucionar el issues 
+  1- se desarrolla el tema y se guardan en github 
+  2- se copia el url del commit y/o la direccion del commit  
+  3- close a comment 
 

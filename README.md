@@ -355,4 +355,9 @@ crea tu wiki titulo y contenido
     videos
     etc
 
+(-----DOCUMENTACION DEL PROYECTO-----)
+
 los vikis  son para esplicar a tu equipo como se va a gestionar tu proyecto y/o a tu colaboradores.    
+
+
+

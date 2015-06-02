@@ -312,3 +312,10 @@ development -- testing --gitgub -- pruduction
 
 ftp solamente es solo para binarios y github es para control de verciones
 
+-----------------------------------------------------------
+-------------------manual deployment-----------------------
+-----------------------------------------------------------
+
+
+
+

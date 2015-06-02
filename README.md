@@ -319,9 +319,9 @@ ftp solamente es solo para binarios y github es para control de verciones
 
 1-configurar con su probedor de dominio la app y iniciar un site
 
-(entran con la direccion que le proporciona su probedor de dominios)==(juanweb396)
+(entran con la direccion que le proporciona su probedor de dominios)==(juanwe@b396.webfaction.com)=ejemplo
 
-2- ssh juanweb396
+2- ssh juanwe@b396.webfaction.com
 
 3- pide el pass del servidor y entra al servidor de forma remota
 
@@ -331,12 +331,17 @@ ftp solamente es solo para binarios y github es para control de verciones
 
 conectar via ssh desde el servidor a github
 (mirar arriba como crear llaves ssh)(la llave se crea en elservidor no en dovelopment)(estando conectado al servidor)
+y se copia a github la llava publica
 
+6- desde terminal del sevidor forma remota
 
+	borra archivo creado por inicio del sever
+	git init
+	git remote add origin (pegar url de github de llave ssh)
+  git remote -v (verifica si esta la rama)
+  git pull origin master
 
+y se crea el deployment
 
-
-
-
-
+(cada vez que se hace un cambio en development y se suben a github se conecta remotamente al servidor para hacer el pull correspondiente)(si se quiere subir los cambios)
 

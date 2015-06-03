@@ -391,8 +391,8 @@ para sulucionar el issues
   3- close a comment 
 
 -------------------------------------------------------------
--------------------------------------------------------------
-------------------automatic deployment-----------------------
+---------------------shell scripts---------------------------
+-----------------------git hooks-----------------------------
 -------------------------------------------------------------
 
 que es shell scripts:
@@ -416,9 +416,41 @@ se ejecutan los comandos en orden desendente(ya sabiendo lo que es son los achiv
 --------git hooks--------------------------------------------
 
 los git hooks son shell scripts sin que son ejecutados bajo sierta condicion
+(existen 17 hooks en git hub)documentacion de cada hooks en github
 
 
+mkdir probandohhoks
+git init
+cd .git (es una carpeta escondida)
+cd hooks
+ls (salen todos los hooks .sample)
+touch post-commit
+vim post-commit    (vim editor de texto en la terminal)
+o (para poder escribir)
 
+  #!/bin/sh
+  git push origin master
+
+guardar
+
+cat post-commit (se puede revisar)
+cmod +x post-commit    (permisos)
+cd ..              (salir)
+cd ..
+
+listo el shel script (git hooks) y con comandos para git hub
+si se hace un cambio yel commit en git se atomatiza el push
+
+git remote add origin (llave ssh)
+git remote -v
+git add -A
+git commit -m "se hace el commit y se automatizan el push"
+listo
+
+-------------------------------------------------------------
+-------------------------------------------------------------
+------------------automatic deployment-----------------------
+-------------------------------------------------------------
 
 
 

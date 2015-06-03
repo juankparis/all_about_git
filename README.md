@@ -415,6 +415,8 @@ se ejecutan los comandos en orden desendente(ya sabiendo lo que es son los achiv
 -------------------------------------------------------------
 --------git hooks--------------------------------------------
 
+LOS HOOKS SON ARCHIVOS SHELL SCRIPTS
+
 los git hooks son shell scripts sin que son ejecutados bajo sierta condicion
 (existen 17 hooks en git hub)documentacion de cada hooks en github
 

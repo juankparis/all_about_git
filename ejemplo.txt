@@ -1,6 +1,7 @@
 este es un ejemplo  este es un ejemploeste es un ejemploeste es un ejemploeste es un ejemploeste es un ejemplo  este es un ejemploeste es un ejemploeste es un ejemploeste es un ejemploeste es un ejemplo  este es un ejemploeste es un ejemploeste es un ejemploeste es un ejemplo
 <<<<<<< HEAD
 =======
+parctica de actualizar repo
 esta es una fusion de repaso
 esta es una fusion de repaso master
 >>>>>>> experimental

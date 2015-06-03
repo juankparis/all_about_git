@@ -390,3 +390,35 @@ para sulucionar el issues
   2- se copia el url del commit y/o la direccion del commit  
   3- close a comment 
 
+-------------------------------------------------------------
+-------------------------------------------------------------
+------------------automatic deployment-----------------------
+-------------------------------------------------------------
+
+que es shell scripts:
+
+serie de comandos encapsulados dentro en un archivo.sh
+crear
+ejercicio.sh
+
+#!/bin/sh
+git init
+touch readme.txt
+git add -A
+git commit -m "primer commit"
+git status
+echo "se ejecutaron todos los comandos"
+
+como se ejecuta el archivo: sh ejercicio.sh
+
+se ejecutan los comandos en orden desendente(ya sabiendo lo que es son los achivos shell scripts vamos con)  
+-------------------------------------------------------------
+--------git hooks--------------------------------------------
+
+los git hooks son shell scripts sin que son ejecutados bajo sierta condicion
+
+
+
+
+
+

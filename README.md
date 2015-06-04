@@ -533,4 +533,58 @@ cuando se ejecuta el atomatic deployment pide el pass
 del server
 (es mas utilizado para testing (servidor de pruevas))
 
+info extra
+-----------------------------------------------------
+-----------------------------------------------------
+-----------------deploy total en server--------------
+-----------------------------------------------------
+(consola server)
 
+es utilizado para tener nuestros repos en el server sin utilizar github todos los cambios se guardan en el server
+git = repo normal
+bare_repositorio = esta en el server (guada como github)
+repo_normal  = deployment final en server
+
+se crean dos carpetas en el server:
+    1- para la app y/o pagina
+    2- para el git_central (bare_repo)
+    3- se eliminan los index creados de cada uno
+
+en git_central
+    git init --bare --share
+
+y se generan los archivos como en git
+
+(bare = va a recibir y enviar contenidos de repos)
+(share = lo puedan push diferentes usuarios)
+
+(consola pc)
+
+crear repo (normal en git)
+
+git remote add origin juanwe@b396.webfaction.com:/home/juanwe/webapps/gitcentral
+
+(entran con la direccion que le proporciona su probedor de dominios)==(juanwe@b396.webfaction.com)=ejemplo
+
+git push origin master
+pass server
+
+si hacemos un push se sube al git_central (bare_repo)
+
+(consola server)
+
+(guarda el contenido pero no pueden verlo)
+
+git log 
+    aparecen los archivos
+
+vamos a la carpeta donde se va a hacer el deployment
+
+git init
+git remote add origin ../git_central
+git pull origin master
+
+se hace una ruta relativa porque el repo esta en el mismo server
+listo
+tambien se puede hacer atomatico de la misma forma que en atomatic deployment con github
+ 

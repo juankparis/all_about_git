@@ -312,9 +312,9 @@ development -- testing --gitgub -- pruduction
 
 ftp solamente es solo para binarios y github es para control de verciones
 
------------------------------------------------------------
--------------------manual deployment-----------------------
------------------------------------------------------------
+------------------------------------------------------
+-------------------manual deployment------------------
+------------------------------------------------------
 (el recomendado)
 
 1-configurar con su probedor de dominio la app y iniciar un site
@@ -331,7 +331,7 @@ ftp solamente es solo para binarios y github es para control de verciones
 
 conectar via ssh desde el servidor a github
 (mirar arriba como crear llaves ssh)(la llave se crea en elservidor no en dovelopment)(estando conectado al servidor)
-y se copia a github la llava publica
+y se copia a github la llave publica
 
 6- desde terminal del sevidor forma remota
 
@@ -360,9 +360,9 @@ crea tu wiki titulo y contenido
 
 los vikis  son para esplicar a tu equipo como se va a gestionar tu proyecto y/o a tu colaboradores.    
 
----------------------------------------------------------
----------------------------------------------------------
-----issues------------------------------------------------
+------------------------------------------------------
+------------------------------------------------------
+----issues--------------------------------------------
 
 gestor de proyectos (adelantos o trabajos asignados)
 
@@ -390,10 +390,10 @@ para sulucionar el issues
   2- se copia el url del commit y/o la direccion del commit  
   3- close a comment 
 
--------------------------------------------------------------
----------------------shell scripts---------------------------
------------------------git hooks-----------------------------
--------------------------------------------------------------
+------------------------------------------------------
+--------------shell scripts---------------------------
+----------------git hooks-----------------------------
+------------------------------------------------------
 
 que es shell scripts:
 
@@ -412,8 +412,8 @@ echo "se ejecutaron todos los comandos"
 como se ejecuta el archivo: sh ejercicio.sh
 
 se ejecutan los comandos en orden desendente(ya sabiendo lo que es son los achivos shell scripts vamos con)  
--------------------------------------------------------------
---------git hooks--------------------------------------------
+------------------------------------------------------
+--------git hooks-------------------------------------
 
 LOS HOOKS SON ARCHIVOS SHELL SCRIPTS
 
@@ -449,10 +449,88 @@ git add -A
 git commit -m "se hace el commit y se automatizan el push"
 listo
 
--------------------------------------------------------------
--------------------------------------------------------------
-------------------automatic deployment-----------------------
--------------------------------------------------------------
+------------------------------------------------------
+------------------------------------------------------
+------------------automatic deployment----------------
+------------------------------------------------------
+(consola = remoto server)
 
+1-configurar con su probedor de dominio la app y iniciar un site
+
+(entran con la direccion que le proporciona su probedor de dominios)==(juanwe@b396.webfaction.com)=ejemplo
+
+2- ssh juanwe@b396.webfaction.com
+
+3- pide el pass del servidor y entra al servidor de forma remota
+
+4- ls (buscamos la carpeta)
+
+5- cd (ruta donde estan las aplicaciones en el servidor y entran y buscamos la carpeta creada en el primer paso)
+
+    (IMPORTANTE la llave ssh no sele pone pass para poder hacer el atomatic deployment)
+
+conectar via ssh desde el servidor a github
+(mirar arriba como crear llaves ssh)(la llave se crea en elservidor no en dovelopment)(estando conectado al servidor)
+y se copia a github la llave publica
+
+ya esta connectado el server via ssh con gihub
+
+6- desde terminal del sevidor forma remota
+
+    borra archivo creado por inicio del sever
+    git init
+    git remote -v (verifica si esta la rama)
+    git pull origin master
+
+(consola = pc)
+
+tener sincronizado git y github
+crear
+    touch .gitignore  (el . = archivo escondido)
+    vim .gitignore    (vim = editar archivos)
+    tecla o
+    escribimos   
+        *.sh
+    guardamos   
+    (que archivos devemos ignorar para que no se suban al repo)
+
+cd .git 
+cd hooks
+touch post-commit
+vim post-commit
+    #!/bin/sh
+    git push origin master
+    ssh direccionremota_server 'bash -s' < deploy.sh
+guardar
+
+(bash -s = abrir una terminal tempotar con el mismo hook)
+(< deploy.sh = para que ejecute el deplo.sh )
+
+cat post-commit
+chmod +x post-commit      =(autorizar)
+cd ..
+cd ..
+
+crear
+    touch deploy.sh
+
+(~ = situarse en la raiz)
+(webapps = carpeta del server donde se ponen la apps (es diferente el nombre segun su probedor de hosting))
+
+vim deploy.sh
+    (tecla o)
+    #!/bin/sh
+    cd ~/webapps/nombre_del_repo
+    git init
+    git remote (ssh)
+    git pull origin master
+
+guardar
+
+listo
+
+cuando se ejecuta el atomatic deployment pide el pass
+del server
+(es mas utilizado para testing (servidor de pruevas))
 
 

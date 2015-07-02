@@ -2,6 +2,10 @@ stylus -h    (help)
 en la ruta del proyecto
 
 stylus -c -w archivo.styl
+
+stylus -c -w -o css/ css/stylus/estilos.styl
+
+	con -o se da la tuta de la compilacion y archivos es stylus
 ___________________________________________________________________________________________
                                     css2stylus
 ___________________________________________________________________________________________
@@ -16,5 +20,22 @@ para compilar achivos de css a stylus
 						y ya estaria compilado el archivo.styl
 
 ____________________________________________________________________________________________
-								uso de nib y mixins
+									uso de nib
 ____________________________________________________________________________________________
+sudo npm install nib -g 
+////
+en la hoja principal se importa con las de mas hojas
+
+	@import "nib"
+	@import "normalize.styl"
+	@import "hoja.styl"
+
+
+stylus -u nib -c -w -o css/ css/stylus/estilos.styl
+
+///personalizacion de prefijos propietarios se hace esto
+	vendor-prefixes = webkit o ms moz official otro
+
+se escriben los motores que se deseen o si sale otro motor se adisiona asi	
+____________________________________________________________________________________________
+

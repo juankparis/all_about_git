@@ -34,7 +34,7 @@ en la hoja principal se importa con las de mas hojas
 stylus -u nib -c -w -o css/ css/stylus/estilos.styl
 
 ///personalizacion de prefijos propietarios se hace esto
-	vendor-prefixes = webkit o ms moz official otro
+	vendor-prefixes = webkit o ms moz official otro_motor_mas
 
 se escriben los motores que se deseen o si sale otro motor se adisiona asi	
 ____________________________________________________________________________________________

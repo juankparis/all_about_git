@@ -41,6 +41,8 @@ git log (muestra los commit(s) echos all info)
 git log
 git checkout (mas numerodel commit)
 git checkout master  (reguersar al ultimo commit)
+git checjout 01  (pimercommit)
+git diff 01..02  (diferencia entre uno y el otro commit)(pimercommit..segundocommit)
 -------------------------------------------------
 (tener cuidado con estos si no sabes utilizarlos bien)
 

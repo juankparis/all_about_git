@@ -1,0 +1,63 @@
+BASES DE DATOS:
+
+RELACIONALES:
+	sql =(structured query language) lenguaje de consulta estructurada
+
+	DB2                             Frebird
+	mysql                           HSQL
+	oracle                          Informix
+	postgreSQL                      Progress
+	mariaDB                         Interbase
+	microsoft sql server            privasiveSQL
+	sqlite                          Sybase ASE
+
+	operaciones:
+
+		create
+		alter
+		drop
+		delete   
+		truncate
+		select
+		insert
+		update
+
+tablas = filas +columnas
+
+
+
+NO RELACIONALES:
+	mongo db
+	redis
+	couch db
+	couch base
+	ravenDB
+	DjonDB
+
+////////////////////////////////////////////////////
+////////////////////////////////////////////////////
+*tipos de bases de datos
+documentales
+	couch db
+	couch base
+	mongo db
+	ravenDB
+	DjonDB	
+
+grafos (tipo facebook)
+	neo4j
+	orientdb
+	infiniteGraph
+	infoGrid
+	HiperGraphDB
+
+clave / valor  ( + usadas autenticacion y cache)
+	cassandra
+	big table
+	dynamo
+	riak
+	redis
+
+orientada a objetos
+	objectdb
+	zone object database

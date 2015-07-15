@@ -24,7 +24,23 @@ RELACIONALES:
 
 tablas = filas +columnas
 
+entrar a mysql:
 
+	mysql -h localhost -u root -p
+
+	show databases
+
+///CREATE DATABASE IF NOT EXISTS namedatabase;//////
+
+	create data base namedatabase
+
+	use namedatabase
+
+
+
+
+///////////////////////////////////////////////////////
+//////////////////////////////////////////////////////
 
 NO RELACIONALES:
 	mongo db
@@ -61,3 +77,22 @@ clave / valor  ( + usadas autenticacion y cache)
 orientada a objetos
 	objectdb
 	zone object database
+
+
+
+		////	mongo.db    ////
+abrir
+	mongo
+    
+    use nombredeladb
+    db.   + el tab = muestra todas las funciones 
+
+    db.monbredeldocumento
+			devuelve = nombredeladb.monbredeldocumento
+
+	show dbs = muestra las dbs en mongo
+	show collections = muestra las "tablas"= collections
+
+	db.monbredeldocumento.insert({"title":"lo que quiera"})
+	db.monbredeldocumento.find().pretty
+	db.monbredeldocumento.remove({title:"nombre"})

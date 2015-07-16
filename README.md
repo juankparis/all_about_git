@@ -1,5 +1,5 @@
 # all_about_git
-aprendiendo git y github de 0 a fondo
+-----------------aprendiendo git y github de 0 a fondo----------------------
 
 instalar git (pagina pricipal esta todo los comandos para cada sistema op..)
 (configuracion inicial)
@@ -28,8 +28,17 @@ git remote add origin [http or SSH]
 -------------------------------------------------
 git status (cual fueron modificados)
 -------------------------------------------------
-git add -A   (+)
+git add -A  
+            git add --all
+            git add nombrearchivo  =(si solo se quiere adisionar uno)
+            git add "*.txt"        =(si solo se quiere adisionar todos de una misma extencion)
+            git add capt/          =(all files in the directori )
+
+git --rename-section viejonombre nuevonombre
+git --remove-section nombre
+
 git commit -m "mensaje del commit"
+
 git status (ya me muestra cabios añadidos listos)
 ------------------------------------------------
 -------//-atajo--add--y --commit----//-----------
@@ -37,11 +46,15 @@ git status (ya me muestra cabios añadidos listos)
 git commit -am "mesaje del commit"
 ----------------------------------------------
 git log (muestra los commit(s) echos all info)
+
 -------------------------------------------------
-git log
+
 git checkout (mas numerodel commit)
 git checkout master  (reguersar al ultimo commit)
 git checjout 01  (pimercommit)
+-------------------------------------------------
+git diff HEAD
+git diff --staged =(ultimos dos commits )
 git diff 01..02  (diferencia entre uno y el otro commit)(pimercommit..segundocommit)
 -------------------------------------------------
 (tener cuidado con estos si no sabes utilizarlos bien)
@@ -57,6 +70,9 @@ hard= borra todo hasta lo de sublime(hasta donde se le diga)
 -------------------------------------------------
 la unca forma de deshacer reser es teniendo el numero de comit
 git reset --hard # devuelve hasta el commit
+
+git rm archivo
+git rm "*.txt"   (todos .estencion)
 
 -------------------------------------------------
 ---------------------------------------------------

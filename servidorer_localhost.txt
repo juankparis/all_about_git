@@ -1,0 +1,17 @@
+-----------------------------------------
+------servidor con python----------------
+-----------------------------------------
+instalar python
+
+en consola + ubicacion del archivo
+		
+		python -m SimpleHTTPServer 9000
+		                           (9000 = puerto donde lo quiera hacer)
+--------------------------------
+-----ver en dispocitivos--------
+--------------------------------
+en consola = ifconfig
+
+se saca el # ip de inet o difus y se escrive en el dispositivo +:9000 o el puerto
+ejemplo= 192.168.1.54:9000
+-------------------------------

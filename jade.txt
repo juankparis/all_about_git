@@ -1,0 +1,13 @@
+install jade
+
+	sudo npm install -g jade
+
+compilar jade
+
+	jade -w index.jade
+
+-o =ruta
+-w =este mirando cambios
+
+descomprimir el archivo final de jade
+	jade index.jade -P    (la P es mayuscula)

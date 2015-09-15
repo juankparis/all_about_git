@@ -14,5 +14,18 @@ en consola = ifconfig
 
 se saca el # ip de inet o difus y se escrive en el dispositivo +:9000 o el puerto
 en el propio pc se puede = localhost:9000
-ejemplo= 192.168.1.54:9000
--------------------------------
+ejemplo= 192.168.1.54:9000     (en otros dispositivos)
+
+-----------------------------------------
+------servidor con http-server-----------
+-----------------------------------------
+install 
+
+	sudo npm install -g http-server
+
+en consola + ubicacion del archivo
+
+	http-sever .
+
+listo
+-----------------------------------------

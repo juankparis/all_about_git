@@ -1,0 +1,65 @@
+
+-------------------SASS---------------------------------------
+--------------------------------------------------------------
+formas de instarlo con node.js o con ruby   (basico)=resto ducumentacion sass
+
+archivos se pueden renderear en ( nomArchiivo.sass ) o ( nomArchiivo.scss )
+
+--------------------------------------------------------------
+------------con ruby------------------------------------------
+--------------------------------------------------------------
+
+sudo apt-get install ruby-sass
+sudo gem install sass
+sass -v    (version)
+sass --help
+
+sass source_file.scss compiled_file.css
+sass --watch source_file.scss:compiled_file.css
+
+sass --watch css/sass/nomArchivo.sass:css/nomArchivo.css
+						(no se utiliza(--output) carpetadestino.css/ carpetadeSASS o SCSS )
+
+
+sass --watch css/sass/nomArchivo.sass:css/nomArchivo.css --style compressed
+
+sass --watch css/sass/nomArchivo.sass:css/nomArchivo.css --style compact
+
+--------------------------------------------------------------
+---------node-sass--------------------------------------------
+--------------------------------------------------------------
+
+instalar node.js
+
+sudo npm install -g node-sass
+
+node-sass nomArchivo.sass nomArchivo.css
+
+node-sass --watch nomArchivo.sass nomArchivo.css
+
+node-sass --watch --output css/ css/sass/nomArchiivo.sass
+							(--output carpetadestino.css/ carpetadeSASS o SCSS )
+							PARA INCLUIR TODO UN DIRECTIRIO /*
+
+node-sass --watch --output-style compressed css/sass/nomArchiivo.sass css/nomArchiivo.css
+							(ruta de cartepas al reves para minificar.css)
+
+variables
+$gris: #333;
+
+_________________________________________________________________________________
+______________________Autoprefixer(opcion de nib de stylus)______________________
+_________________________________________________________________________________
+
+sudo npm install autoprefixer -g
+
+
+_________éste no creará un segundo archivo por defecto y pone todos lo prefijos________________
+
+autoprefixer nomArchivo.css 
+
+___________________________crear otro archivo____________________
+
+autoprefixer unprefixed.css --output prefixed.css
+
+

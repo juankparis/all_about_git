@@ -1,0 +1,25 @@
+--------------------------------
+----------jade-----------------
+
+install jade
+
+	sudo npm install -g jade
+
+compilar jade
+
+	jade -w index.jade
+
+-o =ruta
+-w =este mirando cambios
+
+descomprimir el archivo final de jade
+	jade index.jade -P    (la P es mayuscula)
+
+---------------------------------
+------babel----------------------
+install
+
+	sudo npm install -g babel
+
+	babel -watch lib --out-dir public
+	babel -w -o primer_cp segun_cp

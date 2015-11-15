@@ -93,6 +93,7 @@ git config --global alias.nom_que_quiera 'log --oneline --graph --all'
 
 git nom_que_quiera   (ejecuta el comando de arriba)
 
+git branch -d nombre_rama  =(es para eliminar una rama)
 ---------------------------------------------------
 --------------------fuciones------------------------
 ----------------------------------------------------

@@ -1,0 +1,41 @@
+_______________less_________________________
+
+
+sudo npm install less -g
+sudo npm install -g less-plugin-clean-css    (minificar otra forma (opcional))
+
+listo
+less -V o less -version
+less -? o less --help
+
+___________como compilar less_______________
+
+lessc nomArchivo.less > nomArchivo.css
+
+lessc nomArchivo.less > nomArchivo.css -x      (minificar)
+
+_______________minificar(opcional)____________
+
+Anteriormente, la compresión del CSS se hacía desde el propio compilador de LESS usando la instrucción: lessc -x
+pero hoy con las actuales versiones del compilador de LESS ya no es posible. toca con clean-css
+
+lessc --clean-css style.css style.min.css
+______________________________________________
+
+$variable: #EEE;
+import "otro.less"; 
+_________________________________________________________________________________
+______________________Autoprefixer(opcion de nib de stylus)______________________
+_________________________________________________________________________________
+
+sudo npm install autoprefixer -g
+
+
+_________éste no creará un segundo archivo por defecto y pone todos lo prefijos________________
+
+autoprefixer nomArchivo.css 
+
+___________________________crear otro archivo____________________
+
+autoprefixer unprefixed.css --output prefixed.css
+

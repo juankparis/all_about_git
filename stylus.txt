@@ -1,3 +1,9 @@
+--------install stylus--------
+
+	sudo npm install stylus -g 
+
+	(tiene que estar instalado node.js y npm para instalar stylus)
+------------------------------
 stylus -h    (help)
 en la ruta del proyecto
 
@@ -39,3 +45,17 @@ stylus -u nib -c -w -o css/ css/stylus/estilos.styl
 se escriben los motores que se deseen o si sale otro motor se adisiona asi	
 ____________________________________________________________________________________________
 
+_________________________________________________________________________________
+______________________Autoprefixer(opcion de nib de stylus)______________________
+_________________________________________________________________________________
+
+sudo npm install autoprefixer -g
+
+
+_________éste no creará un segundo archivo por defecto y pone todos lo prefijos________________
+
+autoprefixer nomArchivo.css 
+
+___________________________crear otro archivo____________________
+
+autoprefixer unprefixed.css --output prefixed.css

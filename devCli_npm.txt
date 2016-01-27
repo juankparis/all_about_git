@@ -1,0 +1,53 @@
+--------------bower-------------http://bower.io/
+
+sudo npm install -g bower
+
+bower init
+
+	se llena nombre del  proyecto
+	descripcion de pro (o en blanco)
+	main file (o en blanco)
+	tipo de proyecto (node)~
+	keywords (o en blanco)
+	autores (por de fecto y se pueden agregar)
+	lisense (la que quiera o (MIT))
+	homepage (o en blanco)
+	quiere intalar dependencias Y/n
+	ignorar archivos y/n  (y)
+	publico o privado y/n  (n =no publico)
+	y/n
+
+bower install --save dependencia
+	
+	bower install --save polymer
+
+------------------------------------------
+-------------------watchify---------------
+------------------------------------------
+sudo npm install -g watchify
+
+watchify index.js -o bundle.js
+
+------------------------------------------
+---------minify---------------------------
+------------------------------------------
+sudo install minify -g
+
+ minify app.js > app2.js
+
+------------------------------------------
+--------uglify----------------------------
+------------------------------------------
+npm install -g uglify-js
+
+uglifyjs [archivo de entrada] -o [archivo de salida]
+
+uglifyjs script.js -o script.min.js
+
+-h  help
+-o, --output    
+-b, --beautify
+-m, --mangle
+-r, --reserved
+-c, --compress 
+etc

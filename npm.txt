@@ -1,0 +1,91 @@
+--------npm---------https://docs.npmjs.com/getting-started/using-a-package.json
+
+npm init
+
+{
+  "name": "my_package",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "juan",
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ashleygwilliams/my_package.git"
+  },
+  "bugs": {
+    "url": "https://github.com/ashleygwilliams/my_package/issues"
+  },
+  "homepage": "https://github.com/ashleygwilliams/my_package"
+}
+
+
+"dependencies": these packages are required by your application in production
+"devDependencies": these packages are only needed for development and testing
+
+	npm install <package_name> --save
+
+	npm install <package_name> --save-dev
+
+  ejemplos (nesesarios)
+    npm install --save jquery
+    npm install --save-dev browserify
+
+-------------------------------------------
+esto es lo basico le resto esta en el link
+--------------------------------------------
+  ----------------------
+  ------.gitignore------
+    node_modules
+    otro
+    otro2
+
+ignora todas las carpetas y/o archivos nombrados para no subirlos a git y github
+(separados por enter)
+
+----------------------------------------------http://browserify.org/
+---------utilizando browserify con npm--------https://www.npmjs.com/package/browserify
+----------------------------------------------
+despues de el npm init
+
+como se llamo a la dependencia jquery ya no es necesario el script de llamada a jquery porque browserify lo incluye en el archivo final total.
+
+solo se llama un script el de app.js o bundle.js (o como lo quiera llamar la forma las comun es las anteriores)
+
+var $ = require('jquery');    (obligatorio al principio)
+
+a script dentro de packge.json se escribe
+
+"scripts": {
+    "build-js": "browserify index.js > app.js"
+  },
+
+  "nombredelscript":"browserify documentopricipal.js > scriptfinal.js"
+
+documentopricipal.js = donde estan llamados o requeridos los otros archivos.js
+scriptfinal.js = final y el achivo que se va a llamar desde el script de html
+y listo 
+
+------------------------------------------
+---------------babelify-------------------https://www.npmjs.com/package/babelify
+------------------------------------------
+npm install --save-dev babelify babel-preset-es2015
+
+se istalan estas dos babelify  (y)  babel-preset-es2015
+
+
+a script dentro de packge.json se escribe o se pega el codigo
+-t [ babelify --presets [ es2015 ] ]
+
+"scripts": {
+    "build-js": "browserify -t [ babelify --presets [ es2015 ] ] index.js > app.js"
+  },
+
+ejem
+  import $ from 'jquery';
+
+se corre el script otra vez npm run build-js  
+y listo

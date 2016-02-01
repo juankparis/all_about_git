@@ -67,7 +67,7 @@ a script dentro de packge.json se escribe
 
 documentopricipal.js = donde estan llamados o requeridos los otros archivos.js
 scriptfinal.js = final y el achivo que se va a llamar desde el script de html
-y listo 
+y listo
 
 ------------------------------------------
 ---------------babelify-------------------https://www.npmjs.com/package/babelify
@@ -89,3 +89,4 @@ ejem
 
 se corre el script otra vez npm run build-js  
 y listo
+

@@ -1,0 +1,368 @@
+---------gulp--------------http://gulpjs.com/
+---------------------------https://www.npmjs.com/package/gulp
+tutos
+http://www.nazariglez.com/2014/07/21/primeros-pasos-con-gulp-js/
+http://frontendlabs.io/1669--gulp-js-en-espanol-tutorial-basico-primeros-pasos-y-ejemplos
+https://carlosazaustre.es/blog/automatizando-tu-flujo-de-trabajo-en-el-frontend-con-gulpjs/
+http://frontendlabs.io/1752--gulp-js-plugins-como-configurar-tareas
+
+tener instalado npm, node, * 
+
+crear el archivo gulpfile.js   (al pricipio es mejor o cuando vallamos a escribir las tareas de gulp)
+sudo npm install -g gulp
+
+npm init   (configurar el package)
+
+npm install --save-dev gulp
+
+--listo ahora las tareas
+
+var gulp = require('gulp');  (en todo gulpfile.js) 
+
+----------------------------------------
+-------instalando devdependencies-------uglify
+----------------------------------------gulp-uglify
+
+npm install --save-dev gulp-uglifyjs
+
+en el archivo gulpfile.js
+	var gulp = require('gulp'),
+	var uglify = require('gulp-uglifyjs');
+
+Ahora, definimos la tarea.
+
+var miscripts= 'src/**/*.js';
+(como poner la rutas esta al final en los ejemplos)
+
+
+gulp.task('scripts', function(){      	=nombre scripts es nom tarea
+	return gulp.src(miscripts)        	=miscripts =ruta de los scriupts
+		.pipe(uglify('main.min.js'))	=comprime a main.min.js
+		.pipe(gulp.dest('./'));			=Destino del nuevo fichero en el directorio ./dist
+});
+
+y corremos gulp en consola
+
+gulp scripts
+
+var miscripts=['src/uno.js', 'src/dos.js'];
+(cuando se necesita un orden en los archivos ponemos los achivos en un array)
+
+--------------watch---------------
+-------------------------vigilar--
+----------------------------------
+
+gulp.task('watch', function(){
+	gulp.watch(miscripts, ['scripts']),
+	gulp.watch(rutacss,['css']),
+	gulp.watch(mihtml, ['html']);
+});
+
+//ejem:  gulp.watch(miOtroDirectorio,['miOtraTarea']); 
+es vigile todos los achivos que estan en la variable miscripts y cunado haya un cambio ejecute la tarea scripts (se pueden agragar tantos como uno quiera tanto como en el array como crear otro mas como en la linea 54)
+
+y corremos gulp en consola ya no con scripts sino con watch
+
+gulp watch
+
+listo
+
+cuando queremos ejecutar varias tareas al mismo tiempo y solo escribiendo gulp ejecutamos todas las tareas 
+gulp.task('default',['uno','dos','watch'])
+
+gulp   (en consola y se ejecuta)
+
+------------------------------------------------------------
+--------------------gulp-webserver---------------------------
+------------------------------------------------------------
+npm install --save-dev gulp-webserver
+
+var webserver = require('gulp-webserver');
+
+gulp.task('server', function(){
+	gulp.src('./')
+		.pipe(webserver({
+			host:'0.0.0.0',
+			port:'8080',
+			livereload: true
+		}));	
+});
+
+se pone la tarea en watch y listo
+(hay muchas mas configuraciones para web server y tambien para todos los plugins)
+nota=(hay veces el livereload molesta porque se esta ya ejecutando en un segundo plano se puede quitar o para la ejecucion de el livereload en segundo plano)
+
+------------------------------------------------------------
+----------------gulp-stylus---------------------------------
+------------------------------------------------------------
+npm install --save-dev gulp-stylus
+
+var stylus = require('gulp-stylus');
+
+gulp.task('compress', function () {
+  return gulp.src('./css/compressed.styl')
+    .pipe(stylus({
+      compress: true
+    }))
+    .pipe(gulp.dest('./css/build'));
+});
+
+------otra forma de confugurarlo es asi:------
+
+
+gulp.task('build:css', function() {
+  gulp.src(config.styles.main)
+    .pipe(stylus({
+      use: nib(),
+      'include css': true
+    }))
+    .pipe(minifyCSS())
+    .pipe(gulp.dest(config.styles.output));
+});
+
+es utilizando nib y gulp-minify-css (ya que este minificador es mas optimo que el de gulp-stylus)
+ovianmete se instala nib y gulp-miniyfy-css para poder usarlos
+
+------------------------------------------------------------
+------------------mas devdependecies------------------------
+------------------------------------------------------------
+------------------------less y rename--autoprefixer-minfycss
+
+npm install --save-dev gulp-less gulp-rename 
+npm install --save-dev gulp-autoprefixer gulp-minifyCss
+
+var less = require('gulp-less'), 
+    rename = require('gulp-rename');
+
+var rutacss = 'src/main.less';
+
+gulp.task('css', function(){ 
+    return gulp.src('rutacss')		 			//ruta
+        .pipe(less())							//Compilamos 
+        .pipe(autoprefixer())					//prefijos
+        .pipe(minifyCss())						//minificacion //.pipe(minifyCss({compatibility: 'ie8'}))
+        .pipe(rename('compiled-style.css')) 	//Renombramos
+        .pipe(gulp.dest('./dist')); 			//Indicamos destino 
+});
+
+si queremos que se quede en watch se hace como en ejemplo de utilizacion de watch
+
+-----------------------------------------------------------
+-------------------gulp-minify-html------------------------
+-----------------------------------------------------------
+npm install --seve-dev gulp-minify-html
+
+minifyHTML = require('gulp-minify-html')
+
+var mihtml = 'src/*.html';
+
+gulp.task('html', function(){
+	return gulp.src(mihtml)
+	    .pipe(minifyHTML())
+	    .pipe(gulp.dest('./'));
+});
+
+gulp.watch(mihtml, ['html']);   (en la tarea watch)
+
+
+
+--------------------------------------------------
+-----------------browserify-----------------------
+--------------------------------------------------
+npm install --save-dev gulp-browserify
+npm install --save-dev vinyl-source-stream
+npm install --save-dev vinyl-buffer
+npm install --save-dev gulp-uglify
+
+
+var browserify = require('browserify'),
+	source = require('vinyl-source-stream'),
+	buffer = require('vinyl-buffer'),
+	uglify = require('gulp-uglify');
+
+gulp.task('build:js', function(){
+  return browserify(config.scripts.main)
+    .bundle()
+    .pipe(source('bundle.js'))
+    .pipe(buffer())
+    .pipe(uglify())
+    .pipe(gulp.dest(config.scripts.output))
+});
+
+-----forma para utilizar la dependencia de jquery----
+
+npm install --save-dev gulp-browserify
+
+npm install --save jquey
+
+var $ = require('jquery');    (=en el index.js)
+
+.pipe(browserify())          (=en el gulpfile.js)
+
+------------------------------------------------------------
+----------------gulp-image-optimization---------------------
+------------------------------------------------------------
+npm install --save-dev gulp-image-optimization
+
+var imageop = require('gulp-image-optimization');
+
+gulp.task('images', function(){
+  gulp.src(config.images.watch)
+    .pipe(imageop({
+      optimizationLevel: 5,
+      progressive: true,
+      interlaced: true
+    }))
+    .pipe(gulp.dest(config.images.output));
+});
+
+-------------------------------------
+---------------gulp-concat-----------
+-------------------------------------
+
+npm install --save-dev gulp-concat
+
+var concat = require('gulp-concat');
+
+donde se nececite se pone 
+	.pipe(concat());
+	.pipe(concat('all.js'));  //si se pone un nombre se renombra el archivo
+
+------------------------------------------------------------
+----------------gulp-jshint---------------------------------
+------------------------------------------------------------
+validación de sintaxis
+
+npm install --save-dev gulp-jshint
+
+var gulp = require('gulp'),
+  jshint = require('gulp-jshint'),
+  concat = require('gulp-concat'),
+  uglify = require('gulp-uglify');
+
+gulp.task('demo', function () {
+  gulp.src('js/source/*.js')
+    .pipe(jshint())
+    .pipe(jshint.reporter('default'))
+    .pipe(concat('todo.js'))
+    .pipe(uglify())
+    .pipe(gulp.dest('js/build/'))
+});
+
+______________________________________________________________
+---------------------ejemplos---------------------------------
+______________________________________________________________
+
+
+______________________________________________________________
+-----------------------eje2-----------------------------------
+______________________________________________________________
+
+var gulp = require('gulp');
+var webserver = require('gulp-webserver');
+var stylus = require('gulp-stylus');
+var nib = require('nib');
+var minifyCSS = require('gulp-minify-css');
+var minifyHTML = require('gulp-minify-html');
+var browserify = require('browserify');
+var source = require('vinyl-source-stream');
+var buffer = require('vinyl-buffer');
+var uglify = require('gulp-uglify');
+var smoosher = require('gulp-smoosher');
+var imageop = require('gulp-image-optimization');
+
+var config = {
+  styles: {
+    main: './src/styles/main.styl',
+    watch: './src/styles/**/*.styl',
+    output: './build/css'
+  },
+  html: {
+    main: './src/index.html',
+    watch: './src/**/*.html',
+    output: './build'
+  },
+  scripts:{
+    main: './src/scripts/main.js',
+    watch: './src/scripts/**/*.js',
+    output: './build/js'
+  },
+  images:{
+    watch: ['./build/img/*jpg','./build/img/*png'],
+    output: './dist/img'
+  },
+  smoosher:{
+    watch: './build/index.html',
+    output: './dist'
+  }
+}
+
+gulp.task('server', function() {
+  gulp.src('./build')
+    .pipe(webserver({
+      host: '0.0.0.0',
+      port: 9000,
+      // livereload: true
+    }));
+});
+
+gulp.task('build:css', function() {
+  gulp.src(config.styles.main)
+    .pipe(stylus({
+      use: nib(),
+      'include css': true
+    }))
+    .pipe(minifyCSS())
+    .pipe(gulp.dest(config.styles.output));
+});
+
+gulp.task('build:js', function(){
+  return browserify(config.scripts.main)
+    .bundle()
+    .pipe(source('bundle.js'))
+    .pipe(buffer())
+    .pipe(uglify())
+    .pipe(gulp.dest(config.scripts.output))
+});
+
+gulp.task('watch', function() {
+  gulp.watch(config.images.watch, ['imageso']);
+  gulp.watch(config.styles.watch, ['build:css']);
+  gulp.watch(config.scripts.watch, ['build:js']);
+  gulp.watch(config.html.watch, ['build']);
+  // gulp.watch(config.html.watch, ['smoos']);
+});
+
+gulp.task('build:html', function(){
+  return gulp.src(config.html.main)
+    .pipe(minifyHTML())
+    .pipe(gulp.dest(config.html.output))
+});
+
+gulp.task('imageso', function(){
+  gulp.src(config.images.watch)
+    .pipe(imageop({
+      optimizationLevel: 5,
+      progressive: true,
+      interlaced: true
+    }))
+    .pipe(gulp.dest(config.images.output));
+});
+
+gulp.task('smoos', function(){
+  gulp.src(config.smoosher.watch)
+    .pipe(smoosher())
+    .pipe(gulp.dest(config.smoosher.output));
+});
+
+gulp.task('smoosher', ['smoos'])
+
+gulp.task('build', ['build:css','build:js','imageso'])
+
+gulp.task('default', ['server', 'watch', 'build']);
+
+_________________________________________________________________
+-------------------- end_eje2 -----------------------------------
+en este ejemplo ejecuto primero la tarea por defecto gulp y depues 
+la tarea 'smoos' (para integrar todo en un solo archivo)
+_________________________________________________________________

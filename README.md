@@ -1,4 +1,4 @@
-# all_about_git
+# all_about_git (sistema de control de versiones)
 -----------------aprendiendo git y github de 0 a fondo----------------------
 
 instalar git (pagina pricipal esta todo los comandos para cada sistema op..)
@@ -35,7 +35,6 @@ git add -A
             git add capt/          =(all files in the directori )
 
 git --rename-section viejonombre nuevonombre
-git --remove-section nombre
 
 git commit -m "mensaje del commit"
 
@@ -44,14 +43,60 @@ git status (ya me muestra cabios añadidos listos)
 -------//-atajo--add--y --commit----//-----------
 ------------------------------------------------
 git commit -am "mesaje del commit"
+
+//se sustituye el ultimo commit por el que se va a hacer
+git commit -am "mesaje del commit" --amend  
+
+(sirve para cuando nos falto agregar algo o modificar algo que hace parte del commit que ya haviamos echo para no crear otro commit se hace esto)
+
 ----------------------------------------------
 git log (muestra los commit(s) echos all info)
 
+git log --oneline         (quita las fechas y queda solo en commit)
+git log --oneline --graph (pone estrellas a los commits quita fechas)
+git log --decorate        (muestra en que punto y que rama estamos)
+git log --graph --oneline --decorate (muestra en forma de graficas las ramas y otras)
+git log --stat            (muestra el numero de lineas que se quitaron y se agregaron y achivos)
+git log -3                (Por cantidad. Limita el número de commits. (ultimos))
+git log -p                (muestra que se quito y que se agrego en codigo)
+git shortlog    (muestra en que branch, que desarrollador y cuantos commits a hecho cada persona)
+
+git log --pretty=format:"string" (Nos permite mostrar mensajes personalizados de los commits.)
+ejemplo =     git log --pretty=format:"%cn hizo un commit %h el día %cd"
+
+git log --author="juankparis" (todos los commits echos por este author)
+git log --after="today"       (todos antes de hoy se puede por fecha etc)
+git log --index.html          (por archivo, commits y cuando fue creado)
+git log --grep="nombre_commit" -i (filtra por nombre o palabra encontrada en los commits) 
+                                -i =es para no tener en cuenta las mayusculas o minusculas
+git log -S"mensaje"           (por contenido)
+
+alias a comandos
+-------------------------
+git config --global alias.nom_que_quiera 'log --oneline --graph --all'
+
+git nom_que_quiera   (ejecuta el comando de arriba)
+
+              //////// los mejores  logs  /////////
+
+git log --oneline --graph --all
+    git config --global alias.nicelog "log --oneline --graph --all"
+
+    git nicelog (ya se puede ejecutar)
+
+
+git log --graph --abbrev-commit --decorate --date=relative --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)- %an%C(reset)%C(bold yellow)%d%C(reset)' --all
+    
+    git config --global alias.superlog "log --graph --abbrev-commit --decorate --date=relative --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)- %an%C(reset)%C(bold yellow)%d%C(reset)' --all"
+    
+    git superlog
+
+-------------------------------------------------
 -------------------------------------------------
 
 git checkout (mas numerodel commit)
 git checkout master  (reguersar al ultimo commit)
-git checjout 01  (pimercommit)
+git checkout 01  (pimercommit)
 -------------------------------------------------
 git diff HEAD
 git diff --staged =(ultimos dos commits )
@@ -59,19 +104,22 @@ git diff 01..02  (diferencia entre uno y el otro commit)(pimercommit..segundocom
 -------------------------------------------------
 (tener cuidado con estos si no sabes utilizarlos bien)
 
-git reset --soft  (+ el #) 
-git reset --mix   (+ el #)
 git reset --hard  (+ el #)
+git reset --mixed   (+ el #)
+git reset --soft  (+ el #) 
 
-soft= borra todos los comits arriba de donde se ponga el # de commit (deja cambios en sublime)
-mix= borra todos los commits, pero deja camibios sublime,
 hard= borra todo hasta lo de sublime(hasta donde se le diga)
+mixed= borra todos los commits, pero deja camibios sublime y no guarda cambios en git (git add),
+soft= borra todos los comits arriba de donde se ponga el # de commit (deja cambios en sublime pero si quedan agregados en git (git add -A))
 ----------------nota git reset-------------------
 -------------------------------------------------
 la unca forma de deshacer reser es teniendo el numero de comit
 git reset --hard # devuelve hasta el commit
 
-git rm archivo
+cundo se ejecute git reset comando es bueno guardar los ids de los commits que se van a borrar uno antes con git log y se guerdan en un archivo aparte 
+
+git rm archivo     (remove = lo borra totalmente)
+git --remove-section nombre
 git rm "*.txt"   (todos .estencion)
 
 -------------------------------------------------
@@ -84,16 +132,12 @@ git brach            (listado de todas las ramas)
 
 git checkout experimental (meverse a rama expe..)
 git branch               =(ya estamos en expe...)
--------------------------
+--------------------------------------------------
 git log --online --graph --all (ver todas las ramas con su commits)
--------------------------
-alias a comandos
---------mirrarbranch-------------
-git config --global alias.nom_que_quiera 'log --oneline --graph --all'
-
-git nom_que_quiera   (ejecuta el comando de arriba)
+---------------------------------------------------
 
 git branch -d nombre_rama  =(es para eliminar una rama)
+
 ---------------------------------------------------
 --------------------fuciones------------------------
 ----------------------------------------------------
@@ -140,6 +184,7 @@ git branch -D nombredelarama (borrar rama)
 
 ---------------------------------------------------
 ----git raverse----(encimar rama experimental a la master) (no recomendada de repo publicos(nunca))
+    git merge experimental
 
 ---------------------------------------------------
 --------------------------------------------------

@@ -1,0 +1,28 @@
+(este remplaza a npm init de package.json)
+
+
+npm install -g bower
+
+bower init
+	name
+	version
+	description
+	main file
+	what types....   //se selecciona : globals
+	keywords
+	authors
+	license
+	homepage
+	set currently ...  // yes
+	add gitignore ... // yes
+	would you like to mark ... //yes
+    // yes
+
+bower.json  //fue creado
+
+bower install --save jquery
+
+
+//en archivos 
+var $ = require("jquery");
+module.exports = //lo que va a exportar

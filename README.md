@@ -4,8 +4,8 @@
 instalar git (pagina pricipal esta todo los comandos para cada sistema op..)
 (configuracion inicial)
 ---------------------------------------------------
------------------only git--------------------------
----------------------------------------------------
+-----------------  only git  ----------------------
+----------------  git config  ---------------------
 
 git --version
 
@@ -21,7 +21,9 @@ git --help
 git help +(comando que desea mirar a fondo)
 salir con la tecla (q)
 -------------------------------------------------
+///////////////   git basico   //////////////////
 -------------------------------------------------
+
 git init (si no fue inicializado antes)
 
 git remote add origin [http or SSH]
@@ -39,17 +41,46 @@ git --rename-section viejonombre nuevonombre
 git commit -m "mensaje del commit"
 
 git status (ya me muestra cabios añadidos listos)
+
 ------------------------------------------------
 -------//-atajo--add--y --commit----//-----------
 ------------------------------------------------
 git commit -am "mesaje del commit"
 
-//se sustituye el ultimo commit por el que se va a hacer
-git commit -am "mesaje del commit" --amend  
+---------------------------------------------
+/////   git commit -m "commit" --amend  /////
+---------------------------------------------
 
-(sirve para cuando nos falto agregar algo o modificar algo que hace parte del commit que ya haviamos echo para no crear otro commit se hace esto)
+  //se sustituye el ultimo commit por el que se va a hacer
+  git commit -am "mesaje del commit" --amend
+
+  (sirve para cuando nos falto agregar algo o modificar algo que hace parte del commit que ya haviamos echo para no crear otro commit se hace esto)
 
 ----------------------------------------------
+//////////////   git tag   ///////////////////
+----------------------------------------------
+Existen 2 formas de crear tags. 
+  - Annotated Tags 
+  - Lightweight Tags
+
+  git tag [versión]  = git tag v1.0.0
+
+  git tag -a [versión] -m "[mensaje]"
+  
+  git tag             (Muestra todos los tags creados.)
+  git tag -l "[versión]" (Busca la versión que le solicites.)
+  git show            (Muestra los detalles del tag. commits creados hasta el git tag.)
+  git checkout v1.0.0 (para moverse entre etiquetas. git checkout master = regresar final)
+
+  git tag -a [versión] [commit_id]
+
+  git tag ancestral =(sirve para poner tags a commits ya echos git tag -a v0.9 8e00b40)
+  guardar y salir
+
+----------------------------------------------
+/////////////    git log    //////////////////
+----------------------------------------------
+
 git log (muestra los commit(s) echos all info)
 
 git log --oneline         (quita las fechas y queda solo en commit)
@@ -71,13 +102,17 @@ git log --grep="nombre_commit" -i (filtra por nombre o palabra encontrada en los
                                 -i =es para no tener en cuenta las mayusculas o minusculas
 git log -S"mensaje"           (por contenido)
 
-alias a comandos
 -------------------------
+    alias a comandos
+-------------------------
+
 git config --global alias.nom_que_quiera 'log --oneline --graph --all'
 
 git nom_que_quiera   (ejecuta el comando de arriba)
 
+              -------------------------------------
               //////// los mejores  logs  /////////
+              -------------------------------------
 
 git log --oneline --graph --all
     git config --global alias.nicelog "log --oneline --graph --all"
@@ -92,15 +127,23 @@ git log --graph --abbrev-commit --decorate --date=relative --format=format:'%C(b
     git superlog
 
 -------------------------------------------------
+///////////////    git checkout   ///////////////
 -------------------------------------------------
 
 git checkout (mas numerodel commit)
 git checkout master  (reguersar al ultimo commit)
 git checkout 01  (pimercommit)
+
 -------------------------------------------------
+//////////////    git diff    ///////////////////
+-------------------------------------------------
+
 git diff HEAD
 git diff --staged =(ultimos dos commits )
 git diff 01..02  (diferencia entre uno y el otro commit)(pimercommit..segundocommit)
+
+-------------------------------------------------
+//////////////    git reset    //////////////////
 -------------------------------------------------
 (tener cuidado con estos si no sabes utilizarlos bien)
 
@@ -111,6 +154,7 @@ git reset --soft  (+ el #)
 hard= borra todo hasta lo de sublime(hasta donde se le diga)
 mixed= borra todos los commits, pero deja camibios sublime y no guarda cambios en git (git add),
 soft= borra todos los comits arriba de donde se ponga el # de commit (deja cambios en sublime pero si quedan agregados en git (git add -A))
+
 ----------------nota git reset-------------------
 -------------------------------------------------
 la unca forma de deshacer reser es teniendo el numero de comit
@@ -123,8 +167,7 @@ git --remove-section nombre
 git rm "*.txt"   (todos .estencion)
 
 -------------------------------------------------
----------------------------------------------------
---ramas or branches------------------------------
+//////////  ramas or branches    ////////////////
 -------------------------------------------------
 
 git branch experimental=(es el nombre de la rama)
@@ -138,9 +181,9 @@ git log --online --graph --all (ver todas las ramas con su commits)
 
 git branch -d nombre_rama  =(es para eliminar una rama)
 
----------------------------------------------------
---------------------fuciones------------------------
-----------------------------------------------------
+--------------------------------------------------
+//////////////   fuciones   //////////////////////
+--------------------------------------------------
 
 (para fucionar toca estar en la master si desea uno dejar la fusion final en master si desea fucionar dos ramas diferentes a master se puede, situarse en la rama donde va a quedar la fucion)
 
@@ -186,11 +229,11 @@ git branch -D nombredelarama (borrar rama)
 ----git raverse----(encimar rama experimental a la master) (no recomendada de repo publicos(nunca))
     git merge experimental
 
----------------------------------------------------
---------------------------------------------------
----------------github-----------------------------
----------------------------------------------------
---------------------------------------------------
+              --------------------------------------------------
+              --------------------------------------------------
+              ////////////////    github    ////////////////////
+              --------------------------------------------------
+              --------------------------------------------------
 
 mover a desktop
 y
@@ -206,17 +249,27 @@ git remote add origin enlace_de_github
 git push origin master   (enpujar cambios(commits))
                 (master)=a cual rama guarda los cambios 
 
+(decargar mas ramas)
+git pull origin (nombre_de_la_rama)
+git checkout (nombre_de_la_rama)
+y se crea la rama
+
 ----------------------------------------------------
 ---------repos propios con mi equipo---------------- 
------------actulizar cambios -----------------------
------------------------------------------(*)-----------
+---------------actulizar cambios -------------------
+
+----------------------------------------------------
+////////////   Git Fetch + Git Merge    ////////////
+///////////           git pull          ////////////
+----------------------------------------------------
 
 cuando hacen cambios en github 
 
 git fetch descargar los archivos a mi pc de github
 
-git fetch origin
-git branch -a 
+git remote add origin [http or SSH]   (si es la primera vez)
+git fetch origin 
+git branch -a                         (se ve las ramas escondidas)
 git merge origin/master
 
 (actualiza archibos de otros colaboradores)
@@ -225,8 +278,19 @@ hace los dos comandos a la vez pero toca saber que pasa antes con los comandos a
 git pull    (esta en la rama que deseacatualizar) 
 
 git pull origin (rama a actualizar)
+
 --------------------------------------------------------
------------------------forked----------------------------
+///////////   agregar colaboradores   //////////////////
+--------------------------------------------------------
+
+en github > entrar al repositorio > Settings > Collaborators > pass 
+
+en: Search by username, full name or email address
+y add collaborator
+listo    
+
+--------------------------------------------------------
+/////////////////   forked   ///////////////////////////
 --------------------------------------------------------
 
 ramas basicas 
@@ -246,7 +310,7 @@ git clone [http o ssh]      (se clona a git)
 --------------------------------------------------------
 
 (cundo uno clona el repo no hay nesecidad de estos dos comandos  siguientes porque ya viene incluido el origin)
-git remote add origin [http o ssh] 
+git remote add origin [http o ssh]    (propio) 
 git remote -v
 
 ---------------------------------------------------------
@@ -273,9 +337,23 @@ git merge upstream/master
 git push origin master
 
 actualizar nuestro github (de repo que forkeamos del pricipal) 
+
+Crear ó entrar a la carpeta del proyecto
+  $ git remote add origin [HTTPS ó SSH del proyecto forked]
+  $ git remote add upstream [HTTPS ó SSH del proyecto principal]
+  $ git fetch upstream
+  $ git merge origin/upstream
+  $ git fetch origin
+  $ git merge origin/master
+  Hacer cambios en local
+  $ git fetch upstream
+  $ git merge origin/upstream
+  $ git push origin master
+
 -------------------------------------------------------
-hacer propuestas a repos principales
+////////  hacer propuestas a repos principales   //////
 -------------------------------------------------------
+
 1 estar aztualizados del repo pricipal siempre
 2 gardar los cambios en nuestro repo fork de principal
 3 se hace el pull request desde guthub (boton)
@@ -291,14 +369,34 @@ hacer propuestas a repos principales
 7 si el propietario del repo quiere acepta su propuesta
 
 -------------------------------------------------------
--------------llave SSH---------------------------------
+///////////  aceptar propuestas de fork   /////////////
+-------------------------------------------------------
+aceptar propuestas de personas ajenas al repo
+
+en la barra de navegacion de code setings etc
+
+  sale: pull requests (1)  =num de pull requests
+  salen las propuestas
+
+entra en cada una
+
+  al final se puede commentar y se envia
+  y se oprime el boton que se avilita = merge pull requests
+  y comfirm merge
+
+-------------------------------------------------------
+////////////////////   llave SSH   ////////////////////
 -------------------------------------------------------
 
 Instalar llave SSH
 
 La llave SSH te va a permitir conectarte con tu cuenta de Github. Una vinculación de tu área local(tu ordenador en este caso) y el área remota(los servidores de Github).
+en la raiz
 
   ssh-keygen
+  o
+  ssh-keygen -t rsa -b 4096 -C "[email de GitHub]"
+
   SALE:
   Generating public/private rsa key pair.
   Enter file in which to save the key (/home/you/.ssh/id_rsa):
@@ -328,15 +426,11 @@ en la terminal parado en el repo se hace:
 
 git init
 git remote add origin (direccion ssh)
-git pull origin master
+git pull origin
+git pull origin master    (con todas las ramas)
 pregunta el pass de la llave ssh
 enter
 --------listo-------
-
-(decargar mas ramas)
-git pull origin (nombre_de_la_rama)
-git checkout (nombre_de_la_rama)
-y se crea la rama
 
 -------------------------------------------------------
 -------------------github pages------------------------
@@ -350,9 +444,98 @@ y se crea la rama
 5- se da save
 
     (y listo este es un deployment con github pages)  
+
+--------------------------------------------------------
+//////////////   gestion de proyectos    ///////////////
+--------------------------------------------------------
+--WIKI--------------------------------------------------
+
+en github buscar una area que se llama:  wiki 
+
+crea tu wiki titulo y contenido 
+    imagenes
+    videos
+    etc
+
+(-----DOCUMENTACION DEL PROYECTO-----)
+
+los vikis  son para esplicar a tu equipo como se va a gestionar tu proyecto y/o a tu colaboradores.
+
+la mejor forma es subir la imgs a http://imgur.com/ (le dan una url) 
+y se copea la url de la img en la pestaña de img de wiki > save page
+listo
+
+-----pulse----
+que objetivos se estan cumpliendo y avances
+-----graphs---
+ todo lo que susedio a lo largo de proy
+
+-----------------------------------------------------
+///////////////////  milestone   ////////////////////
+--modulos--------------------------------------------
+
+titulo + descripcion
+fecha para desarrollar y/o solucionar una parte del proyecto 
+create milestone
+se agrega el label      (etiquetas de caracteristica)
+y los agrega al issues de la persona a sulucionar
+
+(el porcentaje de issues resultos asociados y catidad de issues abiertos y cerrados )(agrupacion de tareas)
+
+------------------------------------------------------
+////////////////  issues    //////////////////////////
+------------------------------------------------------
+
+gestor de proyectos (adelantos o trabajos asignados)
+
+crear issues
+titulo + descripcion 
+labels = tipo de issues
+millestone (asociar)
+a quien se lo va asignar
+submit issues
+
+se pueden poner imagenes para una mayor descrpcion
+
+sive para que el gestor de proyectos(persona) vaya haciendo el deployment segun los issues resueltos)(ayuda a asignar una tarea a una persona y asi no se enciman codigo entre desarrolladores
+
+para sulucionar el issues 
+  1- se desarrolla el tema y se guardan en github 
+  2- se copia el url del commit y/o la direccion del commit  (commit_id) 
+  3- close a comment
+
+------------------------------------------------------
+////////////////  organizaciones    //////////////////
+---------------------en github------------------------
+
+grupo de personas que se dedican a formar proyectos  o (empresas)
+
+menu de perfili > settings > organizations > new oranization > name_organization + billing email > create organization (boton) > agregar usuarios que van a colaborar > finish
+
+create_new_repository > name etc..> create
+
+settings > collaborators & teams > agregar collaborators. 
+                            (con teams es lo mismo ejem (frontend) y agregar los collaborators)
+
+              agregar la url del proyecto
+
+readme:
+  name_proyect
+  descripcion_proyecto
+  instalacion
+  requisitos
+  vercion
+  encargados
+  uso
+  documentacion
+  roadmap
+  licence
+            (travis) https://travis-ci.org/
+
+
 --------------------------------------------------------
 --------------------------------------------------------
------------------deployment-----------------------------
+/////////////////   deployment   ///////////////////////
 ---despliegue basico------------------------------------
 --------------------------------------------------------
 
@@ -377,13 +560,14 @@ development -- testing --gitgub -- pruduction
 ftp solamente es solo para binarios y github es para control de verciones
 
 ------------------------------------------------------
--------------------manual deployment------------------
+////////////////   manual deployment   ///////////////
 ------------------------------------------------------
+
 (el recomendado)
 
 1-configurar con su probedor de dominio la app y iniciar un site
 
-(entran con la direccion que le proporciona su probedor de dominios)==(juanwe@b396.webfaction.com)=ejemplo
+(entran con la direccion que le proporciona su probedor de dominios)==(juan@web396.webfaction.com)=ejemplo
 
 2- ssh juanwe@b396.webfaction.com
 
@@ -391,11 +575,11 @@ ftp solamente es solo para binarios y github es para control de verciones
 
 4- ls (buscamos la carpeta)
 
-5- cd (ruta donde estan las aplicaciones en el servidor y entran y buscamos la carpeta creada en el primer paso)
+5- cd (ruta donde estan las aplicaciones en el servidor y entran y buscamos la carpeta creada en el primer paso)   (webapps o pulbic  segun el server)
 
 conectar via ssh desde el servidor a github
 (mirar arriba como crear llaves ssh)(la llave se crea en elservidor no en dovelopment)(estando conectado al servidor)
-y se copia a github la llave publica
+y se copia a github la llave publica a github
 
 6- desde terminal del sevidor forma remota
 
@@ -408,55 +592,10 @@ y se copia a github la llave publica
 y se crea el deployment
 
 (cada vez que se hace un cambio en development y se suben a github se conecta remotamente al servidor para hacer el pull correspondiente)(si se quiere subir los cambios)
---------------------------------------------------------
--------------gestion de proyectos-----------------------
---------------------------------------------------------
---WIKI--------------------------------------------------
-
-en github buscar una area que se llama:  wiki 
-
-crea tu wiki titulo y contenido 
-    imagenes
-    videos
-    etc
-
-(-----DOCUMENTACION DEL PROYECTO-----)
-
-los vikis  son para esplicar a tu equipo como se va a gestionar tu proyecto y/o a tu colaboradores.    
 
 ------------------------------------------------------
-------------------------------------------------------
-----issues--------------------------------------------
-
-gestor de proyectos (adelantos o trabajos asignados)
-
-crear issues
-a quien se lo va asignar
-labels = tipo de issues
-titulo + descripcion 
-submit issues
-
-se pueden puner imagenes para una mayor descrpcion
-
-sive para que el gestor de proyectos(persona) vaya haciendo el deployment segun los issues resueltos)(ayuda a asignar una tarea a una persona y asi no se enciman codigo entre desarrolladores
-
-----milestone----
-
-titulo + descripcion
-fecha para desarrollar y/o solucionar una parte del proyecto 
-create milestone
-y los agrega al issues de la persona a sulucionar
-
-(el porcentaje de issues resultos asociados y catidad de issues abiertos y cerrados )(agrupacion de tareas)
-
-para sulucionar el issues 
-  1- se desarrolla el tema y se guardan en github 
-  2- se copia el url del commit y/o la direccion del commit  
-  3- close a comment 
-
-------------------------------------------------------
---------------shell scripts---------------------------
-----------------git hooks-----------------------------
+/////////////   shell scripts    /////////////////////
+/////////////     git hooks      /////////////////////
 ------------------------------------------------------
 
 que es shell scripts:
@@ -475,9 +614,12 @@ echo "se ejecutaron todos los comandos"
 
 como se ejecuta el archivo: sh ejercicio.sh
 
-se ejecutan los comandos en orden desendente(ya sabiendo lo que es son los achivos shell scripts vamos con)  
+se ejecutan los comandos en orden desendente(ya sabiendo lo que es son los achivos shell scripts vamos con)
+
 ------------------------------------------------------
---------git hooks-------------------------------------
+///////////////   git hooks   ////////////////////////
+------------------------------------------------------
+
 
 LOS HOOKS SON ARCHIVOS SHELL SCRIPTS
 
@@ -505,7 +647,7 @@ cd ..              (salir)
 cd ..
 
 listo el shel script (git hooks) y con comandos para git hub
-si se hace un cambio yel commit en git se atomatiza el push
+si se hace un cambio y el commit en git se atomatiza el push
 
 git remote add origin (llave ssh)
 git remote -v
@@ -514,9 +656,9 @@ git commit -m "se hace el commit y se automatizan el push"
 listo
 
 ------------------------------------------------------
+/////////////   automatic deployment   ///////////////
 ------------------------------------------------------
-------------------automatic deployment----------------
-------------------------------------------------------
+
 (consola = remoto server)
 
 1-configurar con su probedor de dominio la app y iniciar un site
@@ -599,8 +741,7 @@ del server
 
 info extra
 -----------------------------------------------------
------------------------------------------------------
------------------deploy total en server--------------
+///////////   deploy total en server   //////////////
 -----------------------------------------------------
 (consola server)
 
@@ -651,4 +792,7 @@ git pull origin master
 se hace una ruta relativa porque el repo esta en el mismo server
 listo
 tambien se puede hacer atomatico de la misma forma que en atomatic deployment con github
- 
+
+------------------------------------------------
+/////////    amazon web services    ////////////
+------------------------------------------------

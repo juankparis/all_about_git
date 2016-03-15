@@ -456,3 +456,18 @@ _________________________________________________________________
 en este ejemplo ejecuto primero la tarea por defecto gulp y depues 
 la tarea 'smoos' (para integrar todo en un solo archivo pero antes toca editar el index.html del build y ponerle lo <!-- smoosher --><!-- endsmoosher --> en las etiquetas correspondientes)
 _________________________________________________________________
+
+_________________________________________________________________
+/////////// gulp wetch error ////////////////////////////////////
+/////////////////////////////////////////////////////////////////
+_________________________________________________________________
+
+error de gulp dos soluciones 
+1) eliminar archivos tmp (temporales y de mas) falta de espacio en disco duro
+2) cantidad de archivos para mirar (watch)
+
+      la razón del error es que hay un límite en el sistema para la cantidad de archivos pueden ser vistos por un usuario, utilizando el siguiente comando en una ventana de terminal podemos simplemente aumentar el límite ..
+
+      echo fs.inotify.max_user_watches=582222 | sudo tee -a /etc/sysctl.conf && sudo sysctl -p
+
+__________________________________________________________________

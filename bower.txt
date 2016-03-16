@@ -18,10 +18,11 @@ bower init
 	would you like to mark ... //yes
     // yes
 
-bower.json  //fue creado
+bower.json  //fue creado en vez de package.json
+las dependencias se descargan en una carpeta llamada (bower_components)
 
 bower install --save jquery
-
+bower install (descarga todas las dependencias que esten en el archivo bower.json)
 
 //en archivos 
 var $ = require("jquery");

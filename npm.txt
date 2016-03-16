@@ -1,5 +1,15 @@
 --------npm---------https://docs.npmjs.com/getting-started/using-a-package.json
 
+paquete ejemplo con = jquery
+
+npm install            (comando para instalar las librerias que estan ya especificadas en el package.json)
+npm search jquery        (comando para buscar dependencias ejemplo jquery)
+npm view jquery          (muestra toda la descripcion del paquete jquery)
+npm view jquery version  (retorna la ultima vercion de jquery)
+npm view jquery versions (retorna todas las verciones que hay de el paquete)
+npm install jquery@1.11.0 (descarga la vercion pedida con el @ )
+npm publish               (publicar paquetes )
+
 npm init
 
 {

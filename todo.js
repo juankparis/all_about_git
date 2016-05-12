@@ -825,8 +825,11 @@
 	-----------------------------------------------------------------
 	///////////// /Usando una función constructora///////////////////
 	////////////// objeto con una function (clase)  /////////////////
+
+	// la clase mascota
+	// n, v son el costructor y se envian los parametros cuando se instancia el objeto ("roco", 5)
 	function Mascota(n,v){
-		//atributos
+		//atributos = valores que llegan como para metros de entrada del costructor
 		this.nombre = n;
 		this. vida = v;
 		function metodo (){
@@ -838,7 +841,7 @@
 	var perro = new Mascota("roco", 5);
 	var gato = new Mascota("tobi", 5);
 	console.log("el perro se llama "+perro.nombre);
-	console.log("el gato se llama "+gato.nombre+" y "+ gato.vida);
+	console.log("el gato se llama "+gato.nombre+" y tiene "+ gato.vida + " años");
 
 	//////////////////////////otro objeto //////////////////////////
 	///////////////////////////////////////////////////////////////

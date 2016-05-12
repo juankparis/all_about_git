@@ -1,0 +1,15 @@
+//////////////////////////////////////////////////////////////////////////
+//////////////  problema angular (muy raro que pase)    /////////////////
+/////////////////////////////////////////////////////////////////////////
+
+En Linux en casos extraños podemos tener problemas con node y npm por cuestion de permisos, una alternativa es instalar desde codigo fuente:
+
+echo 'export PATH=$HOME/.local/bin:$PATH' >> ~/.bashrc
+. ~/.bashrc
+mkdir ~/.local
+mkdir ~/node-latest-install
+cd ~/node-latest-install
+curl http://nodejs.org/dist/node-latest.tar.gz | tar xz --strip-components=1
+./configure --prefix=$HOME/local
+make install
+curl http://www.npmjs.org/install.sh | sh

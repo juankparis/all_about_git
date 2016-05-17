@@ -13,3 +13,39 @@ curl http://nodejs.org/dist/node-latest.tar.gz | tar xz --strip-components=1
 ./configure --prefix=$HOME/local
 make install
 curl http://www.npmjs.org/install.sh | sh
+
+////////////////////////////////////////////////////////////////////////////
+///////////     error en livereload con o sin gulp o grunt    //////////////
+///////////////////////////////////////////////////////////////////////////
+
+		Fatal error: Port 35729 is already in use by another process.
+
+en consola:
+	        sudo lsof -i :35729
+
+salen los procesos abiertos (eje):
+
+		\COMMAND   PID   USER   FD   TYPE  DEVICE SIZE/OFF NODE NAME
+		grunt   26305 author   12u  IPv6 7064373      0t0  TCP *:35729 (LISTEN)
+
+
+kill -9 PID
+
+ejemplo que me ocurrio:
+
+paso1:
+	sudo lsof -i :35729
+
+muestra:
+
+	COMMAND    PID       USER   FD   TYPE DEVICE SIZE/OFF NODE NAME
+	plugin_ho 6593 juankparis    4u  IPv4 126421      0t0  TCP *:35729 (LISTEN)
+
+paso 2:
+
+    kill -9 plugin_ho 6593 4u
+
+y listo elimina el problema (este ocurre por cerrar con ctrl+z queda en proceso en ejecucion, toca con ctrl+c)
+
+solucion encontrada en: 
+		http://stackoverflow.com/questions/28564077/grunt-task-freeing-up-the-port

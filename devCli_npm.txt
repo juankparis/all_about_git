@@ -51,3 +51,12 @@ uglifyjs script.js -o script.min.js
 -r, --reserved
 -c, --compress 
 etc
+
+
+-------------------------------------------
+ sh
+-------------------------------------------
+gallois 
+gentoo
+blinks
+nebirhos

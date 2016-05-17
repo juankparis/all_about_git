@@ -1,0 +1,14 @@
+-----------------------------------
+documentacion: http://yeoman.io/
+-----------------------------------
+		
+		npm install -g yo
+
+------------------------------
+http://yeoman.io/generators/
+------------------------------
+
+npm install -g (generator)
+
+		ejemplo: npm install -g generator-webapp
+

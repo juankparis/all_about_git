@@ -57,6 +57,12 @@ git commit -am "mesaje del commit"
   (sirve para cuando nos falto agregar algo o modificar algo que hace parte del commit que ya haviamos echo para no crear otro commit se hace esto)
 
 ----------------------------------------------
+///////  eliminar el ultimo commit  //////////
+----------------------------------------------
+
+git reset -- hard HEAD~1
+
+----------------------------------------------
 //////////////   git tag   ///////////////////
 ----------------------------------------------
 Existen 2 formas de crear tags. 
@@ -178,8 +184,12 @@ git branch               =(ya estamos en expe...)
 --------------------------------------------------
 git log --online --graph --all (ver todas las ramas con su commits)
 ---------------------------------------------------
+Eliminar Rama Local
 
-git branch -d nombre_rama  =(es para eliminar una rama)
+  git branch -D nombre_rama  =(es para eliminar una rama)
+
+Eliminar Rama Remota
+  git push origin --delete nombre_rama
 
 --------------------------------------------------
 //////////////   fuciones   //////////////////////

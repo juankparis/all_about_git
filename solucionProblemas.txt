@@ -43,7 +43,7 @@ muestra:
 
 paso 2:
 
-    kill -9 plugin_ho 6593 4u
+    kill -9 plugin_ho 6593   (el numero siempre varia)
 
 y listo elimina el problema (este ocurre por cerrar con ctrl+z queda en proceso en ejecucion, toca con ctrl+c)
 

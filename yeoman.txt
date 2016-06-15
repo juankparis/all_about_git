@@ -12,3 +12,9 @@ npm install -g (generator)
 
 		ejemplo: npm install -g generator-webapp
 
+buscar paquetes
+
+	bower search (pakages)
+
+	bower search angular-ui-sortable
+

@@ -544,6 +544,8 @@
 	console.log("estoy en un array vec "+ vectorial[4]); //otro
 
 	var empty = [];
+	////// otra forma de crear un array ///
+	var empty2 = Array('hola', 'mundo');
 	 
 	var numbers = [
 	    'zero', 'one', 'two', 'three', 'four',
@@ -555,6 +557,9 @@
 	 
 	empty.length    // 0
 	numbers.length  // 10
+
+	///////////  Cambiar el largo de un vector y eliminado el resto de campos  ////////////
+	numbers.length  = 2; //result  ['zero', 'one']
 
 	///////////  Cambiar el valor de un ítem de un vector  ////////////
 
@@ -570,6 +575,18 @@
 
 	numbers.splice(2, 1); 
 	// numbers es ['zero', 'one', 'three', 'four']
+
+	/// adicion de campos a un array ///////
+	var myArray = [ 'hola', 'mundo' ];
+	myArray.push("soy developer");  //salida ['hola', 'mundo', 'soy developer']
+	/// otra forma ///
+	myArray[myArray.length] = 'soy developer';
+	
+	/// eliminar campo en array//
+	myArray.pop();   //[ 'hola', 'mundo' ]
+
+	///// pasar a una cadena de texto un array /////
+	myArray.toString(); //devueleve    'hola,mundo,soy developer' 	
 
 	///////////////// array bidimencional  //////////////////
 	////////////////////////////////////////////////////////

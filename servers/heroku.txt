@@ -1,0 +1,38 @@
+tener cuenta
+git
+heroku toolbelt    https://toolbelt.heroku.com/debian      (cli de heroku)
+
+instalar 
+	wget -O- https://toolbelt.heroku.com/install-ubuntu.sh | sh
+
+configurar
+	heroku login
+(todo esto esta en la paguina)
+
+heroku
+heroku help  (sale si esta bien instalado)
+
+git remote -v   (ver que enlases hay a github y heroku)
+
+	    heroku git:remote -a nombreApp (opcional)
+	heroku create nombreApp
+	git push heroku master
+
+o
+
+	heroku apps:create heroprueba --remote production
+	heroku git:remote -a nombreApp
+	git push heroku master
+
+por defecto heroku depliega la rama master al servidor para deplegar otra rama diferente es
+
+	se pasa a larama a desplegar con git checkout nameRama
+	// heroku git:remote -a nombreApp (opcional)
+	heroku create nombreApp
+	git push heroku nameRama:master
+
+(para crear una paguina estatica en heroku toca crear una archivo llamado)
+composer.json
+{
+}
+(con con llaves como contenido)

@@ -49,3 +49,11 @@ y listo elimina el problema (este ocurre por cerrar con ctrl+z queda en proceso 
 
 solucion encontrada en: 
 		http://stackoverflow.com/questions/28564077/grunt-task-freeing-up-the-port
+
+//////////////////////////////////////////////////////////////
+////////////////  no sirve tema de seti_ui   /////////////////
+//////////////////////////////////////////////////////////////
+
+preferences > settings users > 
+
+cambiar themme a >  "Seti_orig.sublime-theme"

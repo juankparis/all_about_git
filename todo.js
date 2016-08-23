@@ -2,6 +2,18 @@
 	////////////   todo js y ajax jquery   ////////////////
 	///////////////////////////////////////////////////////
 
+	//comentarios por linea
+	/*
+	* comentarios por bloque
+
+	* var no se define el tipo de dato de la variable (se puede guardar diferentes tipos de var)
+	* una variable no puede empezar por un numero  (SOLAMENTE CON UNA LETRA a-z A-Z O _ $)
+	* JAVASCRIPT ES CASE SECITIVE
+	* 	los nombres de las variables son sencibles a las mayusculas ejem: Color es diferente a color
+	* utilizar camelCase es una buena practica para definir var, function, etc..
+	* el ; es opcional en javascript pero se considera una buena pratica ponerlo para hacer el codigo mas legible (DIVIDE LAS SENTENCIAS)
+	*/
+
 	alert("soy una alerta");
 	confirm("soy una confirmacion");
 	var usu =prompt("yo pregunto un valor al usuario");
@@ -12,6 +24,10 @@
 	var f = false;  	//operador logico
 	//el número 0 se convierte en false y cualquier otro número distinto de 0 se convierte en true
 	// Sin embargo, es necesario insistir en que true y false son valores especiales que no se corresponden ni con números ni con ningún otro tipo de dato.
+	//ejemplo
+	var edad = prompt("cual es tu edad");
+	var mayorDeEdad = edad >= 18; //se aloja en la variable true o false segun el valor pasado en la variable edad
+	console.log(mayorDeEdad);
 
 	var variable_octal = 034;
 	var variable_hexadecimal = 0xA3;
@@ -55,20 +71,31 @@
 	var asignar = aux?"hola":"adios";
 	console.log(asignar);  //hola
 
+	/////////////////////////////////////////////////////
 	///////////////////////use strict////////////////////
+	/////////////////////////////////////////////////////
+
 	"use strict";
 	//forma para no sobre escribir las variable globales si en algun momento no la declaramos con var y tampoco deja crear variables globales dentro de la function
 	//no deja asignar nombres de variables con nombres reservados de javascript
+	// use strict = impide la duplicidad de variables y/o var globales, uso de # octales entre otras 
+
 	var i = 3;
 	var j = 5;
 
 	function ejemplo(){
-	"use strict"
-	k = 7; //no se define global si no en scope como si se definiera con var
-	addEventListener = 4;  //no deja definir y sale error (nom reservados javascript)
+		"use strict"
+		k = 7; //no se define global si no en scope como si se definiera con var
+		addEventListener = 4;  //no deja definir y sale error (nom reservados javascript)
 	}
 	ejemplo();
 
+	////////////////////////////////////////////////////////////////////
+	/////////////////////////// date ///////////////////////////////////
+	////////////////////////////////////////////////////////////////////
+
+	hoy = new Date();
+	// mas metodos en la docu de mozilla
 
 	--------------------------------------------------------------------------------------
 	//////////////////////////////constantes matemáticas//////////////////////////////////
@@ -174,9 +201,15 @@
 	resultado = numero2 <= numero3; // resultado = true
 	resultado = numero2 == numero3; // resultado = true //tambien se puede comparar strings 
 	resultado = numero2 != numero3; // resultado = false
+	resultado = numero3 !== numero4; // resultado = true //estrictamente diferentes
 	resultado = numero3 === numero4; // resultado = false
 
 	if(op3 != true){ console.log("op3 es diferente de true"); }
+    
+	////  negacion  ////
+	var negacion = true;
+    
+    !negacion  //devuelve false
 
 	////////////////////// typeof ///////////////////////
 	/////////////////////////////////////////////////////
@@ -202,6 +235,15 @@
 	typeof myString;     // devuelve 'string'
 	typeof myNumber;     // devuelve 'number'
 	typeof null;         // devuelve 'object' -- tenga cuidado
+
+	//// undefined ////
+	/*
+	* valor sin definir (cuando se inicializa una variable pero no se la asigna un valor)
+	*/
+	//// null ////
+	/*
+	* unico valor un puntero de objeto vacio (tambien se utiliza para unicializar un objeto mas adelante)
+	*/
 	 
 	if (myArray.push && myArray.slice && myArray.join) {
 	    // probablemente sea un vector
@@ -278,6 +320,7 @@
 	}
 
 	////////////////////////// while  /////////////////////
+
 	var b = 0;
 	while(b<10){
 		//++b; o b++; empieza en 1 a 10
@@ -285,7 +328,9 @@
 		b++; //empieza de 0 a 9
 	}
 	
-	///////////cilco do while se ejecuta aunque sea una vez //////////////
+	/////////// do while //////////////
+	// se ejecuta aunque sea una vez
+
 	var i=0;
 	do {
 	  i += 1;
@@ -318,6 +363,18 @@
 			//si tiene la propiedad
 			}
 	}
+
+	//////////// break y continue   /////////////
+
+	// break sale del ciclo y terminarlo ejemplo
+	for (var i = 0; i<= 10; i++) {
+		if(i>5){
+			break;  //se ejecuta el ciclo hasta llegar a 5 y se sale del for, no hasta llegar a 10 
+		}
+		console.log(i);
+	}
+
+	continue  //no se interumpe el ciclo de ejecucion (es lo opuesto de break)
 
 	////////////////// try...catch///////////////
 	/////////////////////////////////////////////
@@ -398,6 +455,14 @@
 	var letra = mensaje.charAt(2); // = L
 	var letra = mensaje.charAt(5); // = M
 
+	//////////////// indexOf(caracter) ////////////////////
+
+	// calcula la primera posición en la que se encuentra el carácter indicado dentro de la cadena de texto. Si la cadena no contiene el carácter, la función devuelve el valor -1:
+	
+	var posicion = mensaje.indexOf('a'); // posicion = 3
+	posicion = mensaje.indexOf('b');     // posicion = -1
+	//ojo cuenta de 1 hacia adelante sin el 0
+
 	//////////////// lastIndexOf(caracter) ////////////////////
 
 	// calcula la última posición en la que se encuentra el carácter indicado dentro de la cadena de texto. Si la cadena no contiene el carácter, la función devuelve el valor -1:
@@ -406,9 +471,23 @@
 	posicion = mensaje.lastIndexOf('b');     // posicion = -1
 	//ojo cuenta de 1 hacia adelante sin el 0
 
+	//////////////// substr() //////////////////////////////////
+	/*
+		substr(inicio, longitud)
+	inicio: 	Localización en la cual se empieza a extraer caracteres (un entero entre 0 y la longitud de la cadena menos 1).
+	longitud:   El número de caracteres a extraer.
+	*/
+	var porcion = mensaje.substring(2); // porcion = "la Mundo"
+	porcion = mensaje.substring(1, 3); // porcion = "ola"
+	// Si se indica un inicio negativo, se devuelve la misma cadena original
+
+
 	//////////////// substring(inicio, final) ////////////////// 
 
 	// extrae una porción de una cadena de texto. El segundo parámetro es opcional. 
+
+	//desde(indice A, indice B );
+	
 	var porcion = mensaje.substring(2); // porcion = "la Mundo"
 	porcion = mensaje.substring(1, 8); // porcion = "ola Mun"
 	// Si se indica un inicio negativo, se devuelve la misma cadena original
@@ -499,7 +578,7 @@
 
 	var array = [1, 2, 3];
 	var ultimo = array.pop();
-	// ahora array = [1, 2], borra el ultimo = 3
+	// ahora array = [1, 2], borra el ultimo = 3 y lo devuelve 
 
 	/////////////////////// push() /////////////////////////////
 
@@ -561,32 +640,77 @@
 	///////////  Cambiar el largo de un vector y eliminado el resto de campos  ////////////
 	numbers.length  = 2; //result  ['zero', 'one']
 
+	///////////////// borrado ////////////////
+
+	/// eliminar el ultimo campo en array
+	myArray.pop();   //[ 'hola', 'mundo' ]
+
+	delete numbers[2]; //salida es ['zero', 'one', undefined, 'three', 'four']
+	
+	/*
+	* Desafortunadamente, esto deja un espacio en el array. Esto es porque los elementos a la derecha del elemento eliminado conservan 
+	* sus nombres. Para este caso, JavaScript incorpora una función splice, que permite eliminar y reemplazar elementos de un array. 
+	* El primer argumento indica el por qué elemento comenzar a reemplazar, y el segundo argumento el número de elementos a eliminar.
+	*/
+
+	numbers.splice(2, 1); 
+	// numbers es ['zero', 'one', 'three', 'four']
+
+	////////// splice sive para borrar, insertar, remplazar //////////////
+
+	//borrar no deja campos sin datos
+	numbers.splice(0,2); //borra zero y one
+	/*
+	* [
+	*    'zero', 'one', 'two', 'three', 'four',
+	*    'five', 'six', 'seven', 'eight', 'nine'
+	* ];
+	*/
+	////// insertar //////
+	//posicion donde se quiere insertar numeros que se desea eliminar (siempre 0) elementos a insertar
+
+	numbers.splice(2,0, 'splice','insertar')
+	/*
+	* [
+	*    'zero', 'one', 'splice', 'insertar', 'two', 'three', 'four',
+	*    'five', 'six', 'seven', 'eight', 'nine'
+	* ];
+	*/
+	///// remplazar /////
+
+	// posisicion de partida, numero de elementos a borrar y elementos a insettar 
+	numbers.splice(2,1,"otro")
+	
+
 	///////////  Cambiar el valor de un ítem de un vector  ////////////
 
 		var myArray = [ 'hola', 'mundo' ];
 	    myArray[1] = 'changed'
 
-	///////////////// borrado ////////////////
-
-	delete numbers[2];
-	// numbers es ['zero', 'one', undefined, 'three', 'four']
-
-	// Desafortunadamente, esto deja un espacio en el array. Esto es porque los elementos a la derecha del elemento eliminado conservan sus nombres. Para este caso, JavaScript incorpora una función splice, que permite eliminar y reemplazar elementos de un array. El primer argumento indica el por qué elemento comenzar a reemplazar, y el segundo argumento el número de elementos a eliminar.
-
-	numbers.splice(2, 1); 
-	// numbers es ['zero', 'one', 'three', 'four']
-
 	/// adicion de campos a un array ///////
 	var myArray = [ 'hola', 'mundo' ];
+	
 	myArray.push("soy developer");  //salida ['hola', 'mundo', 'soy developer']
 	/// otra forma ///
 	myArray[myArray.length] = 'soy developer';
-	
-	/// eliminar campo en array//
-	myArray.pop();   //[ 'hola', 'mundo' ]
+
+	//// inserta el nuevo campo de primeras
+	myArray.unshift('primero')  //salida ['primero','hola', 'mundo', 'soy developer']
+
+	// reverse devuelve los campos al reves
+	myArray.reverse();  // salida [ 'soy developer','mundo', 'hola', 'primero']
+
+	//sort ordena alfabeticamente
+	myArray.sort();  //salida ['hola', 'mundo', 'primero', 'soy developer']
+
+	// devuelve lo que este entre la posicion que indiquemos
+	myArray.slice(2,1);  //salida ['hola']
+	myArray.slice(2);  //salida ['mundo', 'soy developer']
+
 
 	///// pasar a una cadena de texto un array /////
 	myArray.toString(); //devueleve    'hola,mundo,soy developer' 	
+
 
 	///////////////// array bidimencional  //////////////////
 	////////////////////////////////////////////////////////
@@ -653,6 +777,7 @@
 	// this hace referencia ala propiedad que esta en su padre sea en un objeto funcion o en window
 
 	////////////// funciones como argumentos /////////////////// 
+
 	var myfn = function(fn) {
 		var resul = fn();
 		console.log(resul) //muestra hola mundo
@@ -660,6 +785,14 @@
 	myfn(function () {
 		return "Hola Mundo"
 	})
+
+	var dosVeces = function(funcAnonima){
+		funcAnonima();
+		funcAnonima();
+	}
+	dosVeces(function(){ 
+		console.log("soy una funcion anonima pasada como argumento");
+	});
 
 	///////// function que se ejecuta enseguida /////////////////
 	////////////////// closure /////////////
@@ -711,6 +844,25 @@
 		console.log(a+b+c+d);
 	}
 	n1();
+
+	//////////////////////////////////////////////////////////////////////
+	///////////////////////shadowing///////////////////////////////////////
+
+	/*
+	* shadowing respeta las gerarquias relacionandolas con los ambitos de las variables
+	* javascript respeta los valores entre variables declaradas en el ambito global y las declaradas en funciones  
+	* (desde se vuelva a declarar la variable con var, si no simplemente se estaria asignando un nuevo valor a dicha variable)
+	*/
+
+	var color = "red";
+	console.log(color); //imprime red
+
+	function shadowing(){
+		var color = "blue";
+		console.log(color); //imprime blue
+	}
+
+	console.log(color); //imprime red
 
 	//////////////////////////////////////////////////////////////////////
 	///////////////////////callback///////////////////////////////////////

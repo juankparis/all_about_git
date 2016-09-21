@@ -5,7 +5,14 @@
 	//comentarios por linea
 	/*
 	* comentarios por bloque
-
+	*
+	var
+		Declara una variable, inizializa opcionalmente un valor.
+ 	let
+		Declara una variable local en un bloque de ámbito, inicializa opcionalmente un valor.
+ 	const
+		Declaración de una constante de solo lectura.
+	*
 	* var no se define el tipo de dato de la variable (se puede guardar diferentes tipos de var)
 	* una variable no puede empezar por un numero  (SOLAMENTE CON UNA LETRA a-z A-Z O _ $)
 	* JAVASCRIPT ES CASE SECITIVE
@@ -211,6 +218,7 @@
     
     !negacion  //devuelve false
 
+    /////////////////////////////////////////////////////
 	////////////////////// typeof ///////////////////////
 	/////////////////////////////////////////////////////
 
@@ -272,6 +280,22 @@
 	-----------------------------------------------------------------------
 	
 	////////////////////////////////// if //////////////////////////
+	/*
+		Se aconseja no usar asiganción simple dentro de una expresión condicional porque dicha asignación puede ser confundida con el comparador de igualdad cuando se lee de pasada el código. Por ejemplo, no uses el siguiente código:
+		if (x = y) {
+  			sentencias aquí
+		}
+
+		Los siguientes valores se evaluarán como falso:
+
+		false
+		undefined
+		null
+		0
+		NaN
+		la cadena vacía ("")
+	*/
+
 	var mostrarMensaje = true;
 
 	if(mostrarMensaje) {
@@ -358,13 +382,18 @@
 	
 	////////////////////for in //////////////////////////////
 
+	/*
+	for in y for of buscar en mozilla 
+	https://developer.mozilla.org/es/docs/Web/JavaScript/Guide/Bucles_e_iteraci%C3%B3n
+	*/
+
 	for(propiedad in object) {
 		if (object.hasOwnProperty(propiedad)) {
 			//si tiene la propiedad
 			}
 	}
 
-	//////////// break y continue   /////////////
+	/////////////////////   break   //////////////////////////
 
 	// break sale del ciclo y terminarlo ejemplo
 	for (var i = 0; i<= 10; i++) {
@@ -374,10 +403,47 @@
 		console.log(i);
 	}
 
-	continue  //no se interumpe el ciclo de ejecucion (es lo opuesto de break)
+	///////////////////   continue   /////////////////////////
+	
+	//continue  no se interumpe el ciclo de ejecucion (es lo opuesto de break)
+
+	i = 0;
+	n = 0;
+	while (i < 5) {
+	  i++;
+	  if (i == 3) {
+	    continue;
+	  }
+	  n += i;
+	}
+
+	//////////////// label ///////////////////////
+
+	//Un label proporciona una sentencia con un identificador que le deja referirse a el desde cualquier lugar de su programa. Por ejemplo, usted puede usar un label para identificar un bucle, y usar las sentencias break o continue para indicar si el programa debe interrumpir un bucle o continuar su ejecución.
+	var x = 0;
+	var z = 0
+	labelCancelLoops: while (true) {
+		console.log("Outer loops: " + x);
+	  	x += 1;
+	  	z = 1;
+	  	while (true) {
+	    	console.log("Inner loops: " + z);
+	    	z += 1;
+	    	if (z === 10 && x === 10) {
+	      		break labelCancelLoops;
+	    	} else if (z === 10) {
+	      		break;
+	    	}
+	  	}
+	}
 
 	////////////////// try...catch///////////////
 	/////////////////////////////////////////////
+
+	/*
+	Sentencia throw 
+		Utiliza la sentencia throw  para lanzar una excepción. Cuando lanzas un excepción, se especifica la expresión que contiene el valor para ser lanzado:
+	*/
 
 	function test(){
 		try{
@@ -410,12 +476,23 @@
             	i+=2; 
        
 			}catch(error){
-				alert("Error: "+error);
+				alert("Error: " + error + "\n ingresa de nuevo los numeros");
 			}
       	}while(i !=2);
 	}
 	test();
 	//mientras no se introduzcan valores numericos no se teriminara la ejecucion
+	
+	//El bloque finally
+	// para hacer que tu script falle con gracia cuando una excepción ocurre; por ejemplo
+	openMyFile();
+		try {
+			writeMyFile(theData); // Esto puede arrojar un error
+		} catch(e) {  
+			handleError(e); // Si ocurre un error es manejado
+		} finally {
+			closeMyFile(); // Siempre cierra el recurso
+		}
 
 	--------------------------------------------------------------
 	///////////////FUNCIONES Y PROPIEDADES BÁSICAS////////////////
@@ -730,7 +807,7 @@
 		console.log("estoy haciendo algo es esta funcion");
 	}
 	hacer_algo();
-	// se llama a la function linea 556
+	// se llama a la function linea 809
 
 	function suma_y_muestra(n1, n2) {
 	  var resultado = n1 + n2;
@@ -739,12 +816,15 @@
 	suma_y_muestra(2,5);
 	
 	var s = function (n1, n2) {
-	  var resultado = n1 + n2;
+	  var resultado = n1 * n2;
 	  console.log("El resultado es " + resultado);
 	}
 	s(2,5); //se ejecuta con la variable s
 
 	///////////////return ///////////////
+	/////////////////////////////////////
+
+	// La sentencia return especifica el valor retornado por la función.
 
 	function division(x,y){
 		var resultado = x/y;
@@ -972,7 +1052,8 @@
 	////////////esta es la forma valida para un json////////////////
 
 	var a='{}';
-	var b = "{"color":"red","altura":180,"otro":"el_mismo"}"
+	var b = 
+		'{"color":"red","altura":180,"otro":"el_mismo"}'
 
 	////////  JSON.parse(json) ///////
 	// devuelve un objeto

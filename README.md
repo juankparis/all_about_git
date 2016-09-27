@@ -50,10 +50,11 @@ git status (ya me muestra cabios añadidos listos)
 git commit -am "mesaje del commit"
 
 ---------------------------------------------
-/////   git commit -m "commit" --amend  /////
+///////   git commit -m --amend  ////////////
 ---------------------------------------------
 
   //se sustituye el ultimo commit por el que se va a hacer
+  git commit -m --amend
   git commit -am "mesaje del commit" --amend
 
   (sirve para cuando nos falto agregar algo o modificar algo que hace parte del commit que ya haviamos echo para no crear otro commit se hace esto)

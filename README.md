@@ -897,9 +897,15 @@ se hace una ruta relativa porque el repo esta en el mismo server
 listo
 tambien se puede hacer atomatico de la misma forma que en atomatic deployment con github
 
+<<<<<<< HEAD
 -----------------------------------------------------
 /////////////////   bare repositories    ////////////
 -----------------------------------------------------
+=======
+------------------------------------------------
+////////////   bare repositories    ////////////
+------------------------------------------------
+>>>>>>> e18555fd4330df9e54c98f4365f3a0b9dce57a5f
 son repositorios si utilizar github y estan guardados en el server o en tu pc
 
 en pc
@@ -941,6 +947,7 @@ ingresan pass
 y listo
 cada vez que se hagan push al server pide pass
 
+<<<<<<< HEAD
 ------------------------------
 //// despliegue repo bare ////
 ------------------------------
@@ -950,3 +957,5 @@ entramos al server via ssh entramos a la carpeta y clonamos el repo bare pero de
 git clone nombreRepo nomcarpetaclonada =   git clone repo.git deploy
 
 listo
+=======
+>>>>>>> e18555fd4330df9e54c98f4365f3a0b9dce57a5f

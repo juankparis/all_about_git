@@ -26,6 +26,8 @@ salir con la tecla (q)
 
 git init (si no fue inicializado antes)
 
+git clone la direccion del repo en github
+
 git remote add origin [http or SSH]
 -------------------------------------------------
 git status (cual fueron modificados)
@@ -70,6 +72,42 @@ cd carpeta/
 rm -rf .git
 
 ----------------------------------------------
+/// eliminar el segimiento de un archivo /////
+----------------------------------------------
+
+git checkout -- nomArchivo.py
+
+cuando se crea un archivo le dan segimiento con git pero se dan de cuenta que no se nesecita y no quieren que quede como se creo y se despues se elimino en el historial de git o commits
+
+----------------------------------------------
+//////////////   git stash  //////////////////
+----------------------------------------------
+guardado provisional > evitar que los cambios se pierdan o se guarden con un commit que no tiene nada que ver
+
+git status
+git stash
+git status
+git list
+git stash apply
+
+
+git status     (hay cambios por guardar)
+
+git stash      (no aparecen los cambios echos pero si estan en un guardado provicional)
+               sale(guardado de cambios en git stash)
+
+git status     (vemos que no aparesen cambios pero si estan guardados provisionalmente)
+
+ejecutas las otras tareas pendientes y cuando ya quieras pasar a segir con lo anterior
+
+git list       (salen los guardados provisionales)
+
+git stash apply   (aplica los cambios guardados otravez a git)
+
+
+si se está trabajando sobre un par de archivos e incluso uno de ellos está ya añadido al área de preparación para un futuro almacenamiento de sus cambios en el repositorio. los guarda con git stash provisionalmente sin tener que hacer un commit y continuar con otra tarea cuando uno desee vuelve a traer el avance o cambios guardados sin generar un commit
+ 
+----------------------------------------------
 //////////////   git tag   ///////////////////
 ----------------------------------------------
 Existen 2 formas de crear tags. 
@@ -90,6 +128,16 @@ Existen 2 formas de crear tags.
   git tag ancestral =(sirve para poner tags a commits ya echos git tag -a v0.9 8e00b40)
   guardar y salir
 
+  --------------
+  subir a github
+  --------------
+
+  git push origin [tagname]=  git push origin v1.0.0
+
+  subir varios tags a la vez
+
+  git push origin --tags
+
 ----------------------------------------------
 /////////////    git log    //////////////////
 ----------------------------------------------
@@ -101,8 +149,8 @@ git log --oneline --graph (pone estrellas a los commits quita fechas)
 git log --decorate        (muestra en que punto y que rama estamos)
 git log --graph --oneline --decorate (muestra en forma de graficas las ramas y otras)
 git log --stat            (muestra el numero de lineas que se quitaron y se agregaron y achivos)
-git log -3                (Por cantidad. Limita el número de commits. (ultimos))
 git log -p                (muestra que se quito y que se agrego en codigo)
+git log -3                (Por cantidad. Limita el número de commits. (ultimos))
 git shortlog    (muestra en que branch, que desarrollador y cuantos commits a hecho cada persona)
 
 git log --pretty=format:"string" (Nos permite mostrar mensajes personalizados de los commits.)
@@ -139,6 +187,19 @@ git log --graph --abbrev-commit --decorate --date=relative --format=format:'%C(b
     
     git superlog
 
+--------------------------------------------------------
+/////////////////   git ignore   ///////////////////////
+--------------------------------------------------------
+
+crear un archivo con nombre  .gitignore
+
+editar y poner los nombres de los achivos que no deseas subir a github
+
+archivoejemplo.txt     (achivos)
+node_modules           (toda una carpeta)
+build/img/img.jpg      (una imagen o sin img.jpg toda la carpeta de img)
+*.txt                  (todos los archivos que terminen en dicha extencion)     
+
 -------------------------------------------------
 ///////////////    git checkout   ///////////////
 -------------------------------------------------
@@ -154,6 +215,7 @@ git checkout 01  (pimercommit)
 git diff HEAD
 git diff --staged =(ultimos dos commits )
 git diff 01..02  (diferencia entre uno y el otro commit)(pimercommit..segundocommit)
+git diff v1.0.0..v1.1.0 (tambien tags)
 
 -------------------------------------------------
 //////////////    git reset    //////////////////
@@ -165,8 +227,8 @@ git reset --mixed   (+ el #)
 git reset --soft  (+ el #) 
 
 hard= borra todo hasta lo de sublime(hasta donde se le diga)
-mixed= borra todos los commits, pero deja camibios sublime y no guarda cambios en git (git add),
-soft= borra todos los comits arriba de donde se ponga el # de commit (deja cambios en sublime pero si quedan agregados en git (git add -A))
+mixed= borra todos los commits, pero deja camibios sublime y no guarda cambios en git (git add) (sirve cuando se an echo varios commits pero se dan de cuenta que se puede hacer en un solo commit ),
+soft= borra todos los comits arriba de donde se ponga el # de commit (deja cambios en sublime pero si quedan agregados en git (git add -A) es paresido al git reset mixed pero este deja listos y/o agregados los archivos para hacer el commit)
 
 ----------------nota git reset-------------------
 -------------------------------------------------
@@ -225,8 +287,7 @@ se da ENTER
 2 -manual merge
 
 dice que hay un conflicto
-(cual quiere dejar y cual quiere borrar)
-head=master  y  rama expe...
+(cual quiere dejar y cual quiere borrar)(se borra todo los otro y solo se deja (git nom_que_quiera) de los dos codigos )
 
 <<<<<<< HEAD
 git nom_que_quiera   (ejecuta el comando de arriba)
@@ -234,17 +295,43 @@ git nom_que_quiera   (ejecuta el comando de arriba)
 git nom_que_quiera   (ejecuta el comando de arriba)
 >>>>>>> experimental
 
+despues de borrar y elejir el codigo que queda si damos git status vemos que esta modificado
+git add -A
+git commit -m "fucion ejecutada"
+
 ------------------------------------------------------
 git branch --merge (para saber que ramas se fucionaron)
 git branch -a   (mirar todas las ramas)
+
 ------------------------------------------------------
-borrar ramas
+//////////////   borrar ramas   //////////////////////
 ------------------------------------------------------
 git branch -D nombredelarama (borrar rama)
 
----------------------------------------------------
-----git raverse----(encimar rama experimental a la master) (no recomendada de repo publicos(nunca))
-    git merge experimental
+------------------------------------------------------
+////////////////////   rebase   //////////////////////
+------------------------------------------------------
+
+git rabase master   (desde la rama que se ba a empujar a master (experimental))
+git checkout master
+git merge experimental
+
+
+rebase :ejemplo
+  si se tiene dos ramas una master y otra experimental y no se quiere fucionar si no dejar todos los commits echos en la rama experimental en la rama principal se hace con rebase  
+  git raverse (encimar rama experimental a la master se situa en la rama que desea empujar a master) (no recomendada de repo publicos(nunca))
+
+  desde experimental
+
+git rebase master
+
+  quedan adelante de los utimos commits de master pero master sige en el utimo commit echo en el punto de la rama master
+
+git checkout master
+
+git merge experimental
+
+listo queda fucionada y el master queda en el ultimo commit con el rebase traido de la rama experimental
 
               --------------------------------------------------
               --------------------------------------------------
@@ -810,6 +897,56 @@ se hace una ruta relativa porque el repo esta en el mismo server
 listo
 tambien se puede hacer atomatico de la misma forma que en atomatic deployment con github
 
-------------------------------------------------
-/////////    amazon web services    ////////////
-------------------------------------------------
+-----------------------------------------------------
+/////////////////   bare repositories    ////////////
+-----------------------------------------------------
+son repositorios si utilizar github y estan guardados en el server o en tu pc
+
+en pc
+
+mkdir server_bare           (creamos carpeta en el server donde se van a alojar los repos bare)
+cd server                   (entramos)
+
+git init --bare repo.git    (se inicializa y se crea el repo bare)
+
+en local se situa donde se quiere el repo local y se clona
+
+git clone ruta nombredelrepo  =   git clone ../server/repo.git barerepolocal
+
+y listo
+
+ya puedes hacer push y pull a tu repo bare
+
+github lo que hace es ejecutar bare repositories y subirlos a un server pero en teoria es lo mismo
+
+----------------
+///en server ///
+----------------
+
+se entra al server por ssh y sebusca donde se alojan las webapps (segun su servicio de servidor es diferente)
+direccion para conectarse remoto a su server
+pass
+
+es lo mismo que arriva pero en el server
+
+mkdir nombreX
+cd NombreX
+git init --bare repo.git
+
+en local se situa donde se quiere el repo local y se clona
+
+git clone ruta_al_sever nombredelrepo  =   git clone juan@web392.webfaction.com:webapps/nombreX/repo.git barerepolocal
+
+ingresan pass
+y listo
+cada vez que se hagan push al server pide pass
+
+------------------------------
+//// despliegue repo bare ////
+------------------------------
+
+entramos al server via ssh entramos a la carpeta y clonamos el repo bare pero dentro del mismo server
+
+git clone nombreRepo nomcarpetaclonada =   git clone repo.git deploy
+
+listo

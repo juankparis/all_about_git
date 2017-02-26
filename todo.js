@@ -73,7 +73,7 @@
 	//////////////////////////   operador ternario  /////////////////
 	/////////////////////////////////////////////////////////////////
 
-	//es paresido al if(si la bariable boleana es true imprime hola, si es false imprime adios)
+	//es parecido al if (si la variable boleana es true imprime hola, si es false imprime adios)
 	var aux = true;
 	var asignar = aux?"hola":"adios";
 	console.log(asignar);  //hola
@@ -325,7 +325,8 @@
 	//////////////////////////////// switch  ////////////////////////////////////////
 
 	//par mi, no es muy recomendable switch porque este no hace triple equivalencia y podemos caer en errores de codigo si no tenemos encuenta esto (cuando el codigo es simple se utiliza sin riesgos)
-	
+	var dia = Number(prompt("dia"));
+
 	switch(dia) {
 	  case 1: console.log("Hoy es lunes."); break;
 	  case 2: console.log("Hoy es martes."); break;
@@ -333,7 +334,8 @@
 	  case 4: console.log("Hoy es jueves."); break;
 	  case 5: console.log("Hoy es viernes."); break;
 	  case 6: console.log("Hoy es sábado."); break;
-	  case 0: console.log("Hoy es domingo."); break;
+	  case 7: console.log("Hoy es domingo."); break;
+	  default: console.log("solo hay 7 dias en la semana"); break;
 	}
 	// otro
 	var f = 5;
@@ -638,8 +640,8 @@
 
 	// concat(), se emplea para concatenar los elementos de varios arrays
 	var array1 = [1, 2, 3];
-	array2 = array1.concat(4, 5, 6);   // array2 = [1, 2, 3, 4, 5, 6]
-	array3 = array1.concat([4, 5, 6]); // array3 = [1, 2, 3, 4, 5, 6]
+	var array2 = array1.concat(4, 5, 6);   // array2 = [1, 2, 3, 4, 5, 6]
+	var array3 = array1.concat([4, 5, 6]); // array3 = [1, 2, 3, 4, 5, 6]
 
 	///////////////////// join(separador) ///////////////////////
 
@@ -1001,7 +1003,9 @@
 	
 	// excepto el valor null y undefined ///
 	
-	// En JavaScript, los objetos son dinámicos, esto quiere decir que sus propiedades no tienen por qué ser definidas en el momento en el que creamos el objeto. Podemos añadir nuevas propiedades al objeto en tiempo de ejecución, tan solo indicando el nombre la propiedad y asignándole un valor o función.
+	// En JavaScript, los objetos son dinámicos, esto quiere decir que sus propiedades no tienen por qué ser definidas en el momento 
+	// en el que creamos el objeto. Podemos añadir nuevas propiedades al objeto en tiempo de ejecución, tan solo indicando el nombre 
+	// la propiedad y asignándole un valor o función.
 
 	var a = new object();//otro
 	a.nombre = "juan";

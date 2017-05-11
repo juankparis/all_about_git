@@ -57,3 +57,25 @@ solucion encontrada en:
 preferences > settings users > 
 
 cambiar themme a >  "Seti_orig.sublime-theme"
+
+
+//////////////////////////////////////////////////////////////
+//////////////////// sever ocupado o pegado  /////////////////
+//////////////////////////////////////////////////////////////
+
+
+sudo netstat -lpn | grep :8000 (o numero del puerto a terminar 8080 etc...)
+
+sale en consola
+
+tcp        0      0 0.0.0.0:8080            0.0.0.0:*               ESCUCHAR    31651/gulp
+
+o
+
+tcp  0  0  127.0.0.1:8000  0.0.0.0:*  LISTEN  19663/python 
+
+se escribe 
+
+kill -9 +numero
+
+kill -9 31651 (el numero siempre varia) (ejem en el de python es 19663)

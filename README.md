@@ -25,10 +25,10 @@ salir con la tecla (q)
 -------------------------------------------------
 
 git init (si no fue inicializado antes)
-
-git clone la direccion del repo en github
-
 git remote add origin [http or SSH]
+
+git clone la direccion del repo en github (generalmente utilizado cuando no es propio)
+
 -------------------------------------------------
 git status (cual fueron modificados)
 -------------------------------------------------
@@ -223,6 +223,7 @@ git diff v1.0.0..v1.1.0 (tambien tags)
 //////////////    git reset    //////////////////
 -------------------------------------------------
 (tener cuidado con estos si no sabes utilizarlos bien)
+lo mejor hacer un git log y guardar los ids de los commits por si se desea devolver a un commit borado y es la unica forma de recuperar los commits borrados 
 
 git reset --hard  (+ el #)
 git reset --mixed   (+ el #)
@@ -262,6 +263,10 @@ Eliminar Rama Local
 Eliminar Rama Remota
   git push origin --delete nombre_rama
 
+
+actualizar rama
+  git pull origin nombredelarama
+
 --------------------------------------------------
 //////////////   fuciones   //////////////////////
 --------------------------------------------------
@@ -284,6 +289,11 @@ escribe el commit
 se da ENTER
 se ( CTRL + X ) que significa salvar y salir
 se da ENTER
+
+----otra forma---
+o     (escrivir commit del merge)
+esc
+:x   (significa guardar y salir)
 -------------------------------------
 
 2 -manual merge
@@ -345,17 +355,30 @@ mover a desktop
 y
 git clone la direccion del repo en github
 
-(clone viene todo incluido hasta los commits del proyecto a clonar)
+(clone viene todo incluido hasta los commits del proyecto a clonar (para repos generalmente no propios))
 --------------------------------------------------
-(enlazar servidores pc-git/github)
+///////  (enlazar git/github)  /////
+--------------------------------------------------
 para proyectos propios
 
+git init
 git remote add origin enlace_de_github
 
-git push origin master   (enpujar cambios(commits))
-                (master)=a cual rama guarda los cambios 
+(si tienen commits por subir a github o es el primer commit)
+    ejemplo
+      git add README.md
+      git commit -m "first commit"
 
-(decargar mas ramas)
+git push origin master   (enpujar cambios(commits))
+                (master)=a cual rama guarda los cambios
+
+(si no es el primer commit se tiene que descargar los archivos)
+
+git pull origin master
+
+--------------------------------------------------
+/////////   (decargar mas ramas)    //////////////
+--------------------------------------------------
 git pull origin (nombre_de_la_rama)
 git checkout (nombre_de_la_rama)
 y se crea la rama
@@ -378,7 +401,7 @@ git fetch origin
 git branch -a                         (se ve las ramas escondidas)
 git merge origin/master
 
-(actualiza archibos de otros colaboradores)
+(actualiza archivos de otros colaboradores)
 
 hace los dos comandos a la vez pero toca saber que pasa antes con los comandos arriba
 git pull    (esta en la rama que deseacatualizar) 
@@ -393,7 +416,9 @@ en github > entrar al repositorio > Settings > Collaborators > pass
 
 en: Search by username, full name or email address
 y add collaborator
-listo    
+listo
+
+se envia la invitacion al correo automaticamente y tambien dan un link para que tu lo envies para que la otra persona lo acepte
 
 --------------------------------------------------------
 /////////////////   forked   ///////////////////////////
@@ -409,7 +434,7 @@ upstreram/master
 para conectar repos forkeados
 
 hay dos repo principal (que uno no puede hacer cambios)
-y el pripio que es un clon donde uno puede hacer cambios
+y el propio que es un clon donde uno puede hacer cambios
 --------------------------------------------------------
 se da fork en github (se clona a github)
 git clone [http o ssh]      (se clona a git)
@@ -418,6 +443,8 @@ git clone [http o ssh]      (se clona a git)
 (cundo uno clona el repo no hay nesecidad de estos dos comandos  siguientes porque ya viene incluido el origin)
 git remote add origin [http o ssh]    (propio) 
 git remote -v
+git fetch origin
+git merge origin/master
 
 ---------------------------------------------------------
 solamente faltaria el upstream
@@ -446,11 +473,11 @@ actualizar nuestro github (de repo que forkeamos del pricipal)
 
 Crear ó entrar a la carpeta del proyecto
   $ git remote add origin [HTTPS ó SSH del proyecto forked]
+  $   git fetch origin
+  $   git merge origin/master
   $ git remote add upstream [HTTPS ó SSH del proyecto principal]
-  $ git fetch upstream
-  $ git merge origin/upstream
-  $ git fetch origin
-  $ git merge origin/master
+  $   git fetch upstream
+  $   git merge upstream/master
   Hacer cambios en local
   $ git fetch upstream
   $ git merge origin/upstream

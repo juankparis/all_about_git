@@ -225,9 +225,17 @@ git diff v1.0.0..v1.1.0 (tambien tags)
 (tener cuidado con estos si no sabes utilizarlos bien)
 lo mejor hacer un git log y guardar los ids de los commits por si se desea devolver a un commit borado y es la unica forma de recuperar los commits borrados 
 
-git reset --hard  (+ el #)
-git reset --mixed   (+ el #)
-git reset --soft  (+ el #) 
+----------------nota git reset-------------------
+-------------------------------------------------
+antes de hacer git reset es mejor guardar los ids de los commits con el siguiente comando
+
+    git log > commits.txt   
+ 
+(y asi si se necesita devolver estan los ids de los commits tambien se puede utilizar git ignore para no subirlo a guthub linea 193 ) 
+
+  git reset --hard  (+ el #)
+  git reset --mixed   (+ el #)
+  git reset --soft  (+ el #) 
 
 hard= borra todo hasta lo de sublime(hasta donde se le diga)
 mixed= borra todos los commits, pero deja camibios sublime y no guarda cambios en git (git add) (sirve cuando se an echo varios commits pero se dan de cuenta que se puede hacer en un solo commit ),
@@ -235,7 +243,7 @@ soft= borra todos los comits arriba de donde se ponga el # de commit (deja cambi
 
 ----------------nota git reset-------------------
 -------------------------------------------------
-la unca forma de deshacer reser es teniendo el numero de comit
+la unca forma de deshacer reser es teniendo el numero de commit
 git reset --hard # devuelve hasta el commit
 
 cundo se ejecute git reset comando es bueno guardar los ids de los commits que se van a borrar uno antes con git log y se guerdan en un archivo aparte 
